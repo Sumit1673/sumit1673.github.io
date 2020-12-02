@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Sumit</title>
+    <link>/project/</link>
+      <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 18 Oct 2019 19:16:06 -0700</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Projects</title>
+      <link>/project/</link>
+    </image>
+    
+    <item>
+      <title>Flack - Real Time Online Messenger Application</title>
+      <link>/project/flack/</link>
+      <pubDate>Fri, 18 Oct 2019 19:16:06 -0700</pubDate>
+      <guid>/project/flack/</guid>
+      <description>
+
+&lt;h2 id=&#34;summary&#34;&gt;Summary:&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Developed an online messaging service using Flask, similar in spirit to Slack.&lt;/li&gt;
+&lt;li&gt;New users can sign in and create or join an existing chatroom. Once a channel is selected, users can communicate in real-time, with the help of WebSockets.&lt;/li&gt;
+&lt;li&gt;The users also have an option to create new channels for communication.&lt;/li&gt;
+&lt;li&gt;Flack uses Flask for the Backend and Javascript, HTML, CSS, BootStrap for the front-end.&lt;/li&gt;
+&lt;li&gt;The user&amp;rsquo;s information is stored in the PostgreSQL database.&lt;/li&gt;
+&lt;li&gt;The final application is deployed on Heroku and is available at the &lt;a href=&#34;http://flack-messenger.herokuapp.com&#34; target=&#34;_blank&#34;&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The image attached above shows two users communicating with each other in real-time.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Facial Key Point Detection</title>
+      <link>/project/facial_key_point_detection/</link>
+      <pubDate>Fri, 18 Oct 2019 19:15:55 -0700</pubDate>
+      <guid>/project/facial_key_point_detection/</guid>
+      <description>
+
+&lt;h2 id=&#34;description&#34;&gt;Description:&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Developed a Facial keypoint detection system by training a convolutional neural network on Youtube Faces dataset.&lt;/li&gt;
+&lt;li&gt;The system detects the face and identifies 68 facial keypoints.&lt;/li&gt;
+&lt;li&gt;Facial keypoints are the small green dots shown on each of the faces in the image above. These keypoints mark essential areas of the face: the eyes, corners of the mouth, the nose, etc. These key points are relevant for a variety of tasks, such as face filters, emotion recognition, pose recognition, and so on.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Once we identify the key points, we can quickly get the pixel coordinate information, which is very useful to add objects over the face.&lt;/p&gt;
+
+&lt;p&gt;As an example, we first identify the key points using the deep learning model developed and the image with key points is here:
+&lt;img src=&#34;c-3.png&#34; alt=&#34;Alt text&#34; title=&#34;Keypoints&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then we add sunglasses using the coordinates of eyes, and the resultant image obtained is below:
+&lt;img src=&#34;c-2.png&#34; alt=&#34;Alt text&#34; title=&#34;Keypoints&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;A small demo for this project is available at this &lt;a href=&#34;https://www.youtube.com/watch?v=alUEBv8RlMA&#34; target=&#34;_blank&#34;&gt;link&lt;/a&gt; on youtube.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hand Segmentation from Depth Images</title>
+      <link>/project/handseg/</link>
+      <pubDate>Fri, 18 Oct 2019 19:01:20 -0700</pubDate>
+      <guid>/project/handseg/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>• Abhishake Kumar Bojja • Franziska Mueller • Sri Raghu Malireddi • Markus Oberweger • Vincent Lepetit • Christian Theobalt • Kwang Moo Yi • Andrea Tagliasacchi | Abhishek</title>
+    <link>/authors/abhishake-kumar-bojja-franziska-mueller-sri-raghu-malireddi-markus-oberweger-vincent-lepetit-christian-theobalt-kwang-moo-yi-andrea-tagliasacchi/</link>
+      <atom:link href="/authors/abhishake-kumar-bojja-franziska-mueller-sri-raghu-malireddi-markus-oberweger-vincent-lepetit-christian-theobalt-kwang-moo-yi-andrea-tagliasacchi/index.xml" rel="self" type="application/rss+xml" />
+    <description>• Abhishake Kumar Bojja • Franziska Mueller • Sri Raghu Malireddi • Markus Oberweger • Vincent Lepetit • Christian Theobalt • Kwang Moo Yi • Andrea Tagliasacchi</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 31 May 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>• Abhishake Kumar Bojja • Franziska Mueller • Sri Raghu Malireddi • Markus Oberweger • Vincent Lepetit • Christian Theobalt • Kwang Moo Yi • Andrea Tagliasacchi</title>
+      <link>/authors/abhishake-kumar-bojja-franziska-mueller-sri-raghu-malireddi-markus-oberweger-vincent-lepetit-christian-theobalt-kwang-moo-yi-andrea-tagliasacchi/</link>
+    </image>
+    
+    <item>
+      <title>HandSeg: An Automatically Labeled Dataset for Hand Segmentation from Depth Images</title>
+      <link>/publication/handseg_paper/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      <guid>/publication/handseg_paper/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

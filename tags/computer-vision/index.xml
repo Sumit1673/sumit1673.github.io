@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer Vision | Abhishek</title>
+    <link>/tags/computer-vision/</link>
+      <atom:link href="/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" />
+    <description>Computer Vision</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 18 Oct 2019 19:15:55 -0700</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Computer Vision</title>
+      <link>/tags/computer-vision/</link>
+    </image>
+    
+    <item>
+      <title>Facial Key Point Detection</title>
+      <link>/project/facial_key_point_detection/</link>
+      <pubDate>Fri, 18 Oct 2019 19:15:55 -0700</pubDate>
+      <guid>/project/facial_key_point_detection/</guid>
+      <description>
+
+&lt;h2 id=&#34;description&#34;&gt;Description:&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Developed a Facial keypoint detection system by training a convolutional neural network on Youtube Faces dataset.&lt;/li&gt;
+&lt;li&gt;The system detects the face and identifies 68 facial keypoints.&lt;/li&gt;
+&lt;li&gt;Facial keypoints are the small green dots shown on each of the faces in the image above. These keypoints mark essential areas of the face: the eyes, corners of the mouth, the nose, etc. These key points are relevant for a variety of tasks, such as face filters, emotion recognition, pose recognition, and so on.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Once we identify the key points, we can quickly get the pixel coordinate information, which is very useful to add objects over the face.&lt;/p&gt;
+
+&lt;p&gt;As an example, we first identify the key points using the deep learning model developed and the image with key points is here:
+&lt;img src=&#34;c-3.png&#34; alt=&#34;Alt text&#34; title=&#34;Keypoints&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then we add sunglasses using the coordinates of eyes, and the resultant image obtained is below:
+&lt;img src=&#34;c-2.png&#34; alt=&#34;Alt text&#34; title=&#34;Keypoints&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;A small demo for this project is available at this &lt;a href=&#34;https://www.youtube.com/watch?v=alUEBv8RlMA&#34; target=&#34;_blank&#34;&gt;link&lt;/a&gt; on youtube.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

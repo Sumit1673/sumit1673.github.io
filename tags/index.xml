@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags | Abhishek</title>
+    <link>/tags/</link>
+      <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tags</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 18 Oct 2019 19:15:55 -0700</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Tags</title>
+      <link>/tags/</link>
+    </image>
+    
+    <item>
+      <title>Computer Vision</title>
+      <link>/tags/computer-vision/</link>
+      <pubDate>Fri, 18 Oct 2019 19:15:55 -0700</pubDate>
+      <guid>/tags/computer-vision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>/tags/deep-learning/</link>
+      <pubDate>Fri, 18 Oct 2019 19:15:55 -0700</pubDate>
+      <guid>/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Facial Key Point Detection</title>
+      <link>/tags/facial-key-point-detection/</link>
+      <pubDate>Fri, 18 Oct 2019 19:15:55 -0700</pubDate>
+      <guid>/tags/facial-key-point-detection/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

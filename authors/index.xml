@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | Sumit</title>
+    <link>/authors/</link>
+      <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 31 May 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Authors</title>
+      <link>/authors/</link>
+    </image>
+    
+    <item>
+      <title>• Abhishake Kumar Bojja • Franziska Mueller • Sri Raghu Malireddi • Markus Oberweger • Vincent Lepetit • Christian Theobalt • Kwang Moo Yi • Andrea Tagliasacchi</title>
+      <link>/authors/abhishake-kumar-bojja-franziska-mueller-sri-raghu-malireddi-markus-oberweger-vincent-lepetit-christian-theobalt-kwang-moo-yi-andrea-tagliasacchi/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      <guid>/authors/abhishake-kumar-bojja-franziska-mueller-sri-raghu-malireddi-markus-oberweger-vincent-lepetit-christian-theobalt-kwang-moo-yi-andrea-tagliasacchi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>• Dipen Bepari • Abhishake Kumar Bojja • B. Sandeep Kumar • Debjani Mitra</title>
+      <link>/authors/dipen-bepari-abhishake-kumar-bojja-b.-sandeep-kumar-debjani-mitra/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/authors/dipen-bepari-abhishake-kumar-bojja-b.-sandeep-kumar-debjani-mitra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/admin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/admin/</guid>
+      <description>&lt;p&gt;I am a Computer Science Graduate student at the &lt;a href=&#34;https://www.uvic.ca/engineering/computerscience/index.php&#34; target=&#34;_blank&#34;&gt;University of Victoria&lt;/a&gt;, living on the beautiful Vancouver Island, Canada. I work as a Research Assistant in the &lt;a href=&#34;https://vision.uvic.ca/people/kmyi/&#34; target=&#34;_blank&#34;&gt;Visual Computing Lab&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;From the past two years, I am on a mission to teach computers to see by leveraging Machine Learning and Deep Learning. I currently research on novel algorithms for Real-Time semantic segmentation on low power devices, domain adaptation for semantic segmentation of hands using Generative Adversarial Networks (GANs).&lt;/p&gt;
+
+&lt;p&gt;I have significant experience in Software Development through my Research Assistant and Intern positions.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
