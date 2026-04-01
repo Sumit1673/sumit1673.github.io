@@ -185,12 +185,14 @@
       box-shadow: 0 0 0 8px rgba(99,102,241,.2), 0 24px 72px rgba(99,102,241,.2);
     }
     .hero-photo img {
-      width: 100%; height: 100%; object-fit: cover;
-      display: block;
-    }
-    /* Placeholder shown when no real photo is set */
-    .hero-photo .photo-initials {
       position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; z-index: 2;
+      border-radius: 50%;
+    }
+    /* Fallback initials — always visible behind the photo */
+    .hero-photo .photo-initials {
+      position: absolute; inset: 0; z-index: 1;
       display: flex; align-items: center; justify-content: center;
       font-size: 52px; font-weight: 700; color: var(--accent2);
       letter-spacing: -2px;
@@ -520,6 +522,7 @@
       .hero-photo-wrap { order: -1; margin-bottom: 8px; }
       .hero-photo { width: 120px; height: 120px; }
       .hero-photo .photo-initials { font-size: 34px; }
+      .hero-photo img { border-radius: 50%; }
       .hero-title { letter-spacing: -1px; }
       .hero-stats { gap: 28px; }
       .timeline::before { left: 15px; }
@@ -614,17 +617,20 @@
            will remain as a fallback if the photo fails to load.
       -->
       <div class="hero-photo" id="hero-photo-ring">
-        <!-- Real photo — set src to your actual image file -->
+        <!-- Initials always visible as background fallback -->
+        <div class="photo-initials" id="photo-initials-fallback">SV</div>
+        <!--
+          Photo sits on top of the initials (z-index 2).
+          If photo.jpg exists → it covers the initials automatically.
+          If photo.jpg is missing → onerror hides the img, initials show through.
+          TO USE: drop photo.jpg in the same folder as index.html, then push both to GitHub.
+        -->
         <img
           src="photo.jpg"
           alt="Sumit Vaise"
           id="hero-photo-img"
-          style="display:none;"
-          onload="this.style.display='block'; document.getElementById('photo-initials-fallback').style.display='none';"
-          onerror="this.style.display='none'; document.getElementById('photo-initials-fallback').style.display='flex';"
+          onerror="this.style.display='none';"
         />
-        <!-- Fallback initials shown until/unless photo loads -->
-        <div class="photo-initials" id="photo-initials-fallback">SV</div>
       </div>
       <div class="hero-photo-status">Available for hire</div>
     </div>
