@@ -432,6 +432,43 @@
     }
     .chip:hover { border-color: var(--accent2); color: var(--accent3); background: rgba(99,102,241,.08); }
 
+    /* ─── Education ────────────────────────────────────────────────────────── */
+    .edu-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 32px;
+      display: flex; align-items: flex-start; gap: 24px;
+      transition: border-color .2s;
+      max-width: 720px;
+    }
+    .edu-card:hover { border-color: var(--accent); }
+    .edu-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: rgba(99,102,241,.12); border: 1px solid rgba(99,102,241,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; flex-shrink: 0;
+    }
+    .edu-body { flex: 1; }
+    .edu-degree { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .edu-uni {
+      font-size: 14px; font-weight: 500; color: var(--accent2); margin-bottom: 6px;
+    }
+    .edu-meta {
+      display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 12px;
+    }
+    .edu-date {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      color: var(--text-dim); background: var(--bg2);
+      border: 1px solid var(--border); padding: 2px 9px; border-radius: 4px;
+    }
+    .edu-location { font-size: 12px; color: var(--text-muted); }
+    .edu-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .edu-tag {
+      font-size: 12px; font-weight: 500;
+      background: rgba(99,102,241,.08); color: var(--accent3);
+      border: 1px solid rgba(99,102,241,.18);
+      padding: 3px 11px; border-radius: 5px;
+    }
+
     /* ─── Contact ──────────────────────────────────────────────────────────── */
     #contact { background: var(--bg); }
     .contact-inner {
@@ -506,6 +543,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -570,12 +608,23 @@
     <div class="hero-photo-wrap">
       <!--
         TO ADD YOUR PHOTO:
-        Replace the <div class="photo-initials"> below with:
-        <img src="photo.jpg" alt="Sumit Vaise" />
-        and upload photo.jpg to the same repo folder.
+        1. Save your headshot as "photo.jpg" (square crop works best)
+        2. Upload photo.jpg to the ROOT of your GitHub repo (same folder as index.html)
+        3. That's it — the image will load automatically and the "SV" initials
+           will remain as a fallback if the photo fails to load.
       -->
-      <div class="hero-photo">
-        <div class="photo-initials">SV</div>
+      <div class="hero-photo" id="hero-photo-ring">
+        <!-- Real photo — set src to your actual image file -->
+        <img
+          src="photo.jpg"
+          alt="Sumit Vaise"
+          id="hero-photo-img"
+          style="display:none;"
+          onload="this.style.display='block'; document.getElementById('photo-initials-fallback').style.display='none';"
+          onerror="this.style.display='none'; document.getElementById('photo-initials-fallback').style.display='flex';"
+        />
+        <!-- Fallback initials shown until/unless photo loads -->
+        <div class="photo-initials" id="photo-initials-fallback">SV</div>
       </div>
       <div class="hero-photo-status">Available for hire</div>
     </div>
@@ -776,6 +825,36 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ─── Education ──────────────────────────────────────────────────────────── -->
+<section id="education">
+  <div class="container">
+    <div class="fade-up">
+      <p class="section-tag">Education</p>
+      <h2 class="section-title">Academic background</h2>
+    </div>
+    <div class="fade-up">
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-body">
+          <div class="edu-degree">Master of Engineering (MEng)</div>
+          <div class="edu-uni">Concordia University</div>
+          <div class="edu-meta">
+            <span class="edu-date">Jan 2019 – Dec 2020</span>
+            <span class="edu-location">📍 Montreal, QC, Canada</span>
+          </div>
+          <div class="edu-tags">
+            <span class="edu-tag">Machine Learning</span>
+            <span class="edu-tag">Computer Vision</span>
+            <span class="edu-tag">Cloud Computing</span>
+            <span class="edu-tag">Deep Learning</span>
+            <span class="edu-tag">Neural Networks</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
