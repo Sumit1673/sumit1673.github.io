@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sumit Vaise — Senior ML Engineer</title>
-  <meta name="description" content="Senior ML Engineer with 9+ years building production AI/ML systems. RAG pipelines, LLMs, MLOps, GCP, AWS." />
-  <!-- Favicon: SVG with SV initials -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236366f1'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Inter,system-ui,sans-serif' font-size='13' font-weight='700'>SV</text></svg>" type="image/svg+xml" />
+  <meta name="description" content="Senior ML Engineer specialising in RAG pipelines, production LLM applications, and end-to-end MLOps on GCP and AWS." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     /* ─── Reset & Base ─────────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,7 +43,6 @@
 
     /* ─── Layout ───────────────────────────────────────────────────────────── */
     .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-
     section { padding: 80px 0; }
     section:nth-child(even) { background: var(--bg2); }
 
@@ -60,10 +57,7 @@
       display: flex; align-items: center; justify-content: space-between;
       height: 60px;
     }
-    .nav-logo {
-      font-weight: 700; font-size: 15px; color: var(--text);
-      letter-spacing: -.3px;
-    }
+    .nav-logo { font-weight: 700; font-size: 15px; color: var(--text); letter-spacing: -.3px; }
     .nav-logo span { color: var(--accent2); }
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); transition: color .2s; }
@@ -91,35 +85,64 @@
       background: radial-gradient(ellipse 70% 50% at 60% 40%, rgba(99,102,241,.12) 0%, transparent 70%);
       pointer-events: none;
     }
-    .hero-inner {
-      position: relative; z-index: 1;
-      max-width: 700px;
+    .hero-inner { position: relative; z-index: 1; width: 100%; }
+    .hero-layout {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 48px; align-items: center;
     }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(99,102,241,.12); border: 1px solid rgba(99,102,241,.3);
-      color: var(--accent3); font-size: 12px; font-weight: 500;
-      padding: 5px 14px; border-radius: 100px;
-      margin-bottom: 28px; letter-spacing: .5px;
+    .hero-photo-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+      flex-shrink: 0;
     }
-    .hero-badge::before { content: '●'; font-size: 8px; color: var(--green); }
+    .hero-photo {
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 6px rgba(99,102,241,.12), 0 20px 60px rgba(0,0,0,.5);
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #1a1e2a 0%, #252a38 100%);
+      transition: box-shadow .3s;
+    }
+    .hero-photo:hover { box-shadow: 0 0 0 8px rgba(99,102,241,.2), 0 24px 72px rgba(99,102,241,.2); }
+    .hero-photo img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; z-index: 2; border-radius: 50%;
+    }
+    .hero-photo .photo-initials {
+      position: absolute; inset: 0; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 56px; font-weight: 800; color: var(--accent2);
+      letter-spacing: -2px;
+    }
+    .hero-availability {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 12px; font-weight: 500; color: var(--green);
+      background: rgba(52,211,153,.08); border: 1px solid rgba(52,211,153,.2);
+      padding: 5px 14px; border-radius: 99px; margin-bottom: 20px;
+    }
+    .hero-availability::before {
+      content: ''; width: 7px; height: 7px;
+      background: var(--green); border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+    h1.hero-name {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800; letter-spacing: -1.5px;
+      line-height: 1.08; color: var(--text);
+      margin-bottom: 10px;
+    }
     .hero-title {
-      font-size: clamp(38px, 6vw, 62px);
-      font-weight: 700; line-height: 1.1;
-      letter-spacing: -1.5px;
-      margin-bottom: 12px;
+      font-size: 18px; font-weight: 500; color: var(--accent2);
+      margin-bottom: 18px;
     }
-    .hero-title .name { display: block; color: var(--text); }
-    .hero-title .role { display: block; color: var(--accent2); }
-    .hero-sub {
-      font-size: clamp(15px, 2vw, 18px);
-      color: var(--text-muted);
-      max-width: 540px;
-      margin-bottom: 40px;
-      font-weight: 400;
+    .hero-desc {
+      font-size: 15px; color: var(--text-muted);
+      max-width: 540px; line-height: 1.75; margin-bottom: 32px;
     }
-    .hero-sub strong { color: var(--accent3); font-weight: 600; }
-    .hero-links { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 48px; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 48px; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--accent); color: #fff;
@@ -142,135 +165,25 @@
     }
     .stat-item { }
     .stat-num { font-size: 26px; font-weight: 700; color: var(--accent2); letter-spacing: -1px; }
-    .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; text-transform: uppercase; letter-spacing: .6px; }
+    .stat-label { font-size: 12px; color: var(--text-muted); }
 
-    /* ─── Section Headers ──────────────────────────────────────────────────── */
+    /* ─── Section headings ─────────────────────────────────────────────────── */
     .section-tag {
       font-size: 11px; font-weight: 600; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--accent2);
-      margin-bottom: 10px;
+      text-transform: uppercase; color: var(--accent2); margin-bottom: 8px;
     }
     .section-title {
-      font-size: clamp(24px, 4vw, 34px);
-      font-weight: 700; letter-spacing: -0.8px;
-      color: var(--text); margin-bottom: 14px;
+      font-size: clamp(22px, 3.5vw, 32px); font-weight: 700;
+      letter-spacing: -.5px; margin-bottom: 14px;
     }
-    .section-lead {
-      font-size: 15px; color: var(--text-muted);
-      max-width: 580px; margin-bottom: 52px;
-    }
+    .section-lead { font-size: 15px; color: var(--text-muted); max-width: 560px; margin-bottom: 48px; }
 
-    /* ─── Hero Photo ───────────────────────────────────────────────────────── */
-    .hero-layout {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 60px;
-      align-items: center;
-    }
-    .hero-photo-wrap {
-      display: flex; flex-direction: column; align-items: center; gap: 16px;
-      flex-shrink: 0;
-    }
-    .hero-photo {
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 0 6px rgba(99,102,241,.12), 0 20px 60px rgba(0,0,0,.5);
-      overflow: hidden;
-      position: relative;
-      background: linear-gradient(135deg, #1a1e2a 0%, #252a38 100%);
-      transition: box-shadow .3s;
-    }
-    .hero-photo:hover {
-      box-shadow: 0 0 0 8px rgba(99,102,241,.2), 0 24px 72px rgba(99,102,241,.2);
-    }
-    .hero-photo img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: cover;
-      display: block; z-index: 2;
-      border-radius: 50%;
-    }
-    /* Fallback initials — always visible behind the photo */
-    .hero-photo .photo-initials {
-      position: absolute; inset: 0; z-index: 1;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 52px; font-weight: 700; color: var(--accent2);
-      letter-spacing: -2px;
-      background: linear-gradient(135deg, rgba(99,102,241,.18) 0%, rgba(129,140,248,.08) 100%);
-    }
-    .hero-photo-status {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; color: var(--text-muted);
-      background: var(--bg3); border: 1px solid var(--border);
-      padding: 4px 12px; border-radius: 100px;
-    }
-    .hero-photo-status::before { content: '●'; font-size: 7px; color: var(--green); }
-
-    /* ─── Blog ─────────────────────────────────────────────────────────────── */
-    .blog-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 22px;
-    }
-    .blog-card {
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: border-color .2s, transform .2s, box-shadow .2s;
-      text-decoration: none;
-    }
-    .blog-card:hover {
-      border-color: var(--accent); color: var(--text);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(99,102,241,.12);
-    }
-    .blog-card-thumb {
-      width: 100%; height: 160px;
-      background: linear-gradient(135deg, #1a1e2a 0%, #252a38 100%);
-      overflow: hidden; flex-shrink: 0; position: relative;
-    }
-    .blog-card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .blog-card-thumb-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 38px;
-    }
-    .blog-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
-    .blog-card-meta {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 10px;
-    }
-    .blog-card-date { font-size: 11px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; }
-    .blog-card-tag {
-      font-size: 10px; font-weight: 600; letter-spacing: .5px;
-      background: rgba(99,102,241,.1); color: var(--accent3);
-      border: 1px solid rgba(99,102,241,.2);
-      padding: 2px 8px; border-radius: 4px; text-transform: uppercase;
-    }
-    .blog-card-title {
-      font-size: 15px; font-weight: 700; color: var(--text);
-      line-height: 1.4; margin-bottom: 10px;
-    }
-    .blog-card-excerpt {
-      font-size: 13px; color: var(--text-muted); line-height: 1.65;
-      flex: 1; margin-bottom: 16px;
-      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .blog-card-cta {
-      font-size: 12px; font-weight: 600; color: var(--accent2);
-      display: inline-flex; align-items: center; gap: 5px;
-      margin-top: auto;
-    }
-    .blog-card-cta svg { transition: transform .2s; }
-    .blog-card:hover .blog-card-cta svg { transform: translateX(3px); }
-    /* Loading + error states */
-    .blog-loading, .blog-error {
-      grid-column: 1 / -1; text-align: center;
-      padding: 60px 20px; color: var(--text-muted); font-size: 14px;
-    }
+    /* ─── Blog loading/error ───────────────────────────────────────────────── */
     .blog-spinner {
-      width: 28px; height: 28px; border: 2px solid var(--border);
-      border-top-color: var(--accent); border-radius: 50%;
+      width: 32px; height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
       animation: spin .8s linear infinite; margin: 0 auto 16px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -286,9 +199,7 @@
     }
     .subscribe-left h3 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .subscribe-left p { font-size: 13.5px; color: var(--text-muted); max-width: 380px; }
-    .subscribe-form {
-      display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap;
-    }
+    .subscribe-form { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
     .subscribe-input {
       background: var(--bg3); border: 1px solid var(--border);
       color: var(--text); font-size: 14px; font-family: 'Inter', sans-serif;
@@ -301,13 +212,10 @@
       background: var(--accent); color: #fff; font-size: 14px;
       font-weight: 600; font-family: 'Inter', sans-serif;
       padding: 11px 24px; border-radius: 8px; border: none; cursor: pointer;
-      transition: background .2s, transform .15s;
-      white-space: nowrap;
+      transition: background .2s, transform .15s; white-space: nowrap;
     }
     .subscribe-btn:hover { background: var(--accent2); transform: translateY(-1px); }
-    .subscribe-tiers {
-      display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap;
-    }
+    .subscribe-tiers { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
     .tier-badge {
       font-size: 11px; font-weight: 500;
       padding: 3px 12px; border-radius: 100px;
@@ -316,20 +224,11 @@
     .tier-paid { background: rgba(251,191,36,.1); color: var(--amber); border: 1px solid rgba(251,191,36,.2); }
 
     /* ─── About ────────────────────────────────────────────────────────────── */
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 48px; align-items: start;
-    }
-    .about-text p {
-      color: var(--text-muted); font-size: 15px;
-      margin-bottom: 18px; line-height: 1.8;
-    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .about-text p { color: var(--text-muted); font-size: 15px; margin-bottom: 18px; line-height: 1.8; }
     .about-text p strong { color: var(--text); }
     .about-cards { display: flex; flex-direction: column; gap: 16px; }
-    .about-card {
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 20px 22px;
-    }
+    .about-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; }
     .about-card-icon { font-size: 22px; margin-bottom: 8px; }
     .about-card h4 { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
     .about-card p { font-size: 13px; color: var(--text-muted); margin: 0; }
@@ -337,44 +236,40 @@
     /* ─── Experience ───────────────────────────────────────────────────────── */
     .timeline { position: relative; }
     .timeline::before {
-      content: '';
-      position: absolute; left: 19px; top: 0; bottom: 0;
-      width: 1px; background: var(--border);
+      content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+      width: 2px; background: var(--border);
     }
-    .tl-item {
-      position: relative; padding-left: 56px;
-      margin-bottom: 44px;
-    }
-    .tl-item:last-child { margin-bottom: 0; }
+    .tl-item { position: relative; padding-left: 28px; padding-bottom: 40px; }
+    .tl-item:last-child { padding-bottom: 0; }
     .tl-dot {
-      position: absolute; left: 12px; top: 6px;
-      width: 16px; height: 16px; border-radius: 50%;
-      background: var(--bg); border: 2px solid var(--accent);
-      transition: background .2s;
+      position: absolute; left: -5px; top: 8px;
+      width: 12px; height: 12px;
+      background: var(--accent); border-radius: 50%;
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent);
     }
-    .tl-item:hover .tl-dot { background: var(--accent); }
-    .tl-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
-    .tl-title { font-size: 16px; font-weight: 700; color: var(--text); }
-    .tl-company { font-size: 13px; font-weight: 500; color: var(--accent2); margin-bottom: 3px; }
+    .tl-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 16px; flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .tl-title { font-size: 15px; font-weight: 700; color: var(--text); }
+    .tl-company { font-size: 13px; color: var(--accent2); margin-top: 2px; }
     .tl-date {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px; color: var(--text-dim);
-      background: var(--bg3); border: 1px solid var(--border);
-      padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      color: var(--text-dim); background: var(--bg2);
+      border: 1px solid var(--border); padding: 3px 10px;
+      border-radius: 4px; white-space: nowrap;
     }
     .tl-bullets { margin-top: 10px; padding-left: 16px; }
-    .tl-bullets li {
-      font-size: 13.5px; color: var(--text-muted);
-      margin-bottom: 7px; line-height: 1.65;
-    }
+    .tl-bullets li { font-size: 13.5px; color: var(--text-muted); margin-bottom: 7px; line-height: 1.65; }
     .tl-bullets li::marker { color: var(--accent); }
     .tl-bullets li strong { color: var(--text); }
     .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
     .tl-tag {
       font-size: 11px; font-weight: 500;
       background: rgba(99,102,241,.1); color: var(--accent3);
-      border: 1px solid rgba(99,102,241,.2);
-      padding: 2px 10px; border-radius: 4px;
+      border: 1px solid rgba(99,102,241,.2); padding: 2px 10px; border-radius: 4px;
     }
 
     /* ─── Projects ─────────────────────────────────────────────────────────── */
@@ -384,23 +279,41 @@
     }
     .project-card {
       background: var(--bg3); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 28px;
+      border-radius: var(--radius-lg); padding: 28px 26px;
+      display: flex; flex-direction: column; gap: 14px;
       transition: border-color .2s, transform .2s, box-shadow .2s;
-      display: flex; flex-direction: column;
     }
     .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(99,102,241,.15);
+      border-color: var(--accent); transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(99,102,241,.12);
     }
-    .project-icon { font-size: 28px; margin-bottom: 16px; }
-    .project-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-    .project-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 18px; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .project-card.featured-card {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(99,102,241,.3), 0 4px 24px rgba(99,102,241,.1);
+    }
+    .project-icon { font-size: 28px; }
+    .project-title { font-size: 15px; font-weight: 700; color: var(--text); }
+    .project-badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      background: var(--accent); color: #fff;
+      padding: 2px 9px; border-radius: 99px;
+      text-transform: uppercase; letter-spacing: .5px;
+      margin-left: 8px; vertical-align: middle;
+    }
+    .project-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; flex: 1; }
+    .project-metrics {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .project-metric {
+      background: rgba(99,102,241,.08); border: 1px solid rgba(99,102,241,.18);
+      border-radius: 6px; padding: 6px 12px; text-align: center;
+    }
+    .project-metric-val { font-size: 15px; font-weight: 700; color: var(--accent2); display: block; }
+    .project-metric-label { font-size: 10px; color: var(--text-muted); }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 7px; }
     .project-tag {
-      font-size: 11px; font-family: 'JetBrains Mono', monospace;
-      background: var(--bg2); color: var(--text-dim);
-      border: 1px solid var(--border);
+      font-size: 11px; font-weight: 500; color: var(--text-muted);
+      background: var(--bg2); border: 1px solid var(--border);
       padding: 3px 9px; border-radius: 4px;
     }
     .project-links { display: flex; gap: 12px; margin-top: auto; }
@@ -411,52 +324,34 @@
       border-radius: 6px; transition: border-color .2s, color .2s;
     }
     .project-link:hover { border-color: var(--accent2); color: var(--accent3); }
-    .project-link.featured {
-      background: var(--accent); color: #fff; border-color: var(--accent);
-    }
+    .project-link.featured { background: var(--accent); color: #fff; border-color: var(--accent); }
     .project-link.featured:hover { background: var(--accent2); border-color: var(--accent2); color: #fff; }
 
     /* ─── Skills ───────────────────────────────────────────────────────────── */
     .skills-grid { display: flex; flex-direction: column; gap: 32px; }
-    .skill-group { }
     .skill-group-label {
       font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--accent2);
-      margin-bottom: 12px;
+      text-transform: uppercase; color: var(--accent2); margin-bottom: 12px;
     }
     .skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip {
       font-size: 13px; font-weight: 500;
-      background: var(--bg3); color: var(--text);
-      border: 1px solid var(--border);
-      padding: 6px 16px; border-radius: 6px;
-      transition: border-color .2s, color .2s, background .2s;
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text-muted); padding: 5px 14px; border-radius: 6px;
+      transition: border-color .2s, color .2s;
     }
-    .chip:hover { border-color: var(--accent2); color: var(--accent3); background: rgba(99,102,241,.08); }
+    .chip:hover { border-color: var(--accent2); color: var(--accent3); }
 
     /* ─── Education ────────────────────────────────────────────────────────── */
     .edu-card {
       background: var(--bg3); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 28px 32px;
-      display: flex; align-items: flex-start; gap: 24px;
-      transition: border-color .2s;
-      max-width: 720px;
+      border-radius: var(--radius-lg); padding: 28px 30px;
+      display: flex; gap: 20px; align-items: flex-start;
     }
-    .edu-card:hover { border-color: var(--accent); }
-    .edu-icon {
-      width: 52px; height: 52px; border-radius: 12px;
-      background: rgba(99,102,241,.12); border: 1px solid rgba(99,102,241,.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; flex-shrink: 0;
-    }
-    .edu-body { flex: 1; }
+    .edu-icon { font-size: 28px; flex-shrink: 0; }
     .edu-degree { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-    .edu-uni {
-      font-size: 14px; font-weight: 500; color: var(--accent2); margin-bottom: 6px;
-    }
-    .edu-meta {
-      display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 12px;
-    }
+    .edu-uni { font-size: 14px; font-weight: 500; color: var(--accent2); margin-bottom: 6px; }
+    .edu-meta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
     .edu-date {
       font-family: 'JetBrains Mono', monospace; font-size: 11px;
       color: var(--text-dim); background: var(--bg2);
@@ -467,43 +362,75 @@
     .edu-tag {
       font-size: 12px; font-weight: 500;
       background: rgba(99,102,241,.08); color: var(--accent3);
-      border: 1px solid rgba(99,102,241,.18);
-      padding: 3px 11px; border-radius: 5px;
+      border: 1px solid rgba(99,102,241,.18); padding: 3px 11px; border-radius: 5px;
+    }
+
+    /* ─── Blog ─────────────────────────────────────────────────────────────── */
+    .blog-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .blog-error { text-align: center; color: var(--text-muted); padding: 40px 0; }
+    .blog-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      text-decoration: none; color: var(--text);
+    }
+    .blog-card:hover {
+      border-color: var(--accent); color: var(--text);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(99,102,241,.12);
+    }
+    .blog-card-thumb {
+      width: 100%; height: 160px;
+      background: linear-gradient(135deg, #1a1e2a 0%, #252a38 100%);
+      overflow: hidden; flex-shrink: 0; position: relative;
+    }
+    .blog-card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .blog-card-thumb-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center; font-size: 38px;
+    }
+    .blog-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .blog-card-date { font-size: 11px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; }
+    .blog-card-tag {
+      font-size: 10px; font-weight: 600; letter-spacing: .5px;
+      background: rgba(99,102,241,.1); color: var(--accent3);
+      border: 1px solid rgba(99,102,241,.2);
+      padding: 2px 8px; border-radius: 4px; text-transform: uppercase;
+    }
+    .blog-card-title { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.45; margin-bottom: 8px; }
+    .blog-card-excerpt { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; flex: 1; }
+    .blog-card-cta {
+      display: inline-flex; align-items: center; gap: 5px; margin-top: 14px;
+      font-size: 12px; font-weight: 600; color: var(--accent2);
     }
 
     /* ─── Contact ──────────────────────────────────────────────────────────── */
     #contact { background: var(--bg); }
-    .contact-inner {
-      max-width: 580px; margin: 0 auto;
-      text-align: center;
-    }
-    .contact-inner .section-tag { display: block; }
-    .contact-inner .section-title { }
-    .contact-inner p { color: var(--text-muted); font-size: 15px; margin-bottom: 36px; line-height: 1.8; }
-    .contact-links { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .contact-inner { max-width: 600px; }
+    .contact-inner p { color: var(--text-muted); margin-bottom: 32px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 14px; }
     .contact-item {
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--bg3); border: 1px solid var(--border);
-      color: var(--text); font-size: 14px; font-weight: 500;
-      padding: 12px 22px; border-radius: 8px;
+      color: var(--text); font-size: 13px; font-weight: 500;
+      padding: 12px 20px; border-radius: 8px;
       transition: border-color .2s, color .2s, transform .15s;
     }
     .contact-item:hover { border-color: var(--accent2); color: var(--accent3); transform: translateY(-2px); }
     .contact-item svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
 
     /* ─── Footer ───────────────────────────────────────────────────────────── */
-    footer {
-      background: var(--bg2); border-top: 1px solid var(--border);
-      padding: 28px 0; text-align: center;
-    }
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 28px 0; text-align: center; }
     footer p { font-size: 12px; color: var(--text-dim); }
     footer a { color: var(--text-muted); }
 
     /* ─── Scroll Animations ────────────────────────────────────────────────── */
-    .fade-up {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     /* ─── Responsive ───────────────────────────────────────────────────────── */
@@ -522,22 +449,19 @@
       .hero-photo-wrap { order: -1; margin-bottom: 8px; }
       .hero-photo { width: 120px; height: 120px; }
       .hero-photo .photo-initials { font-size: 34px; }
-      .hero-photo img { border-radius: 50%; }
-      .hero-title { letter-spacing: -1px; }
-      .hero-stats { gap: 28px; }
-      .timeline::before { left: 15px; }
-      .tl-item { padding-left: 44px; }
-      .tl-dot { left: 8px; }
+      .hero-stats { gap: 24px; }
+      .stat-num { font-size: 22px; }
+      .subscribe-strip { padding: 28px 24px; }
+      .tl-header { flex-direction: column; gap: 6px; }
       .projects-grid { grid-template-columns: 1fr; }
-      .subscribe-strip { padding: 28px 24px; flex-direction: column; }
-      .subscribe-input { min-width: 100%; }
-      .subscribe-form { width: 100%; flex-direction: column; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .project-metrics { gap: 8px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── Navigation ─────────────────────────────────────────────────────────── -->
+<!-- ─── Nav ─────────────────────────────────────────────────────────────── -->
 <nav>
   <div class="container">
     <div class="nav-logo">Sumit Vaise</div>
@@ -558,88 +482,54 @@
   </div>
 </nav>
 
-<!-- ─── Hero ───────────────────────────────────────────────────────────────── -->
+<!-- ─── Hero ─────────────────────────────────────────────────────────────── -->
 <section id="hero">
   <div class="container">
-    <div class="hero-layout">
     <div class="hero-inner">
-      <div class="hero-badge">Open to new opportunities · Scarborough, Ontario</div>
-      <h1 class="hero-title">
-        <span class="name">Sumit Vaise</span>
-        <span class="role">Senior ML Engineer</span>
-      </h1>
-      <p class="hero-sub">
-        I build <strong>AI/ML systems that actually ship</strong> — RAG pipelines,
-        production LLM applications, and end-to-end MLOps infrastructure that handles
-        millions of events daily across GCP and AWS.
-      </p>
-      <div class="hero-links">
-        <a href="#projects" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-          View Projects
-        </a>
-        <a href="https://github.com/Sumit1673" target="_blank" rel="noopener" class="btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.31 9.42 7.9 10.95.58.1.79-.25.79-.56v-2.07c-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.19a11.08 11.08 0 012.9-.39c.99 0 1.98.13 2.9.39 2.2-1.5 3.17-1.19 3.17-1.19.64 1.58.24 2.75.12 3.04.74.81 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.15v3.19c0 .31.21.67.8.56C20.2 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
-          GitHub
-        </a>
-        <a href="https://linkedin.com/in/sumit-vaise-6644514b" target="_blank" rel="noopener" class="btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-          LinkedIn
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">9+</div>
-          <div class="stat-label">Years Experience</div>
+      <div class="hero-layout">
+        <div class="hero-text">
+          <div class="hero-availability">Open to new opportunities · Scarborough, Ontario</div>
+          <h1 class="hero-name">Sumit Vaise</h1>
+          <div class="hero-title">Senior ML Engineer</div>
+          <p class="hero-desc">
+            I build AI/ML systems that actually ship — RAG pipelines, production LLM applications,
+            and end-to-end MLOps infrastructure that handles millions of events daily across GCP and AWS.
+          </p>
+          <div class="hero-btns">
+            <a href="#projects" class="btn-primary">View Projects</a>
+            <a href="https://github.com/Sumit1673" target="_blank" rel="noopener" class="btn-outline">GitHub</a>
+            <a href="https://linkedin.com/in/sumit-vaise-6644514b" target="_blank" rel="noopener" class="btn-outline">LinkedIn</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-num">9+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">5</div>
+              <div class="stat-label">Companies</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">20M+</div>
+              <div class="stat-label">Daily Events Handled</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">40%</div>
+              <div class="stat-label">Avg Latency Reduction</div>
+            </div>
+          </div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">5</div>
-          <div class="stat-label">Companies</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">20M+</div>
-          <div class="stat-label">Daily Events Handled</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">40%</div>
-          <div class="stat-label">Avg Latency Reduction</div>
+        <div class="hero-photo-wrap">
+          <div class="hero-photo">
+            <div class="photo-initials">SV</div>
+          </div>
         </div>
       </div>
-    </div><!-- end hero-inner -->
-
-    <!-- ── Photo column ── -->
-    <div class="hero-photo-wrap">
-      <!--
-        TO ADD YOUR PHOTO:
-        1. Save your headshot as "photo.jpg" (square crop works best)
-        2. Upload photo.jpg to the ROOT of your GitHub repo (same folder as index.html)
-        3. That's it — the image will load automatically and the "SV" initials
-           will remain as a fallback if the photo fails to load.
-      -->
-      <div class="hero-photo" id="hero-photo-ring">
-        <!-- Initials always visible as background fallback -->
-        <div class="photo-initials" id="photo-initials-fallback">SV</div>
-        <!--
-          Photo sits on top of the initials (z-index 2).
-          If photo.jpg exists → it covers the initials automatically.
-          If photo.jpg is missing → onerror hides the img, initials show through.
-          TO USE: drop photo.jpg in the same folder as index.html, then push both to GitHub.
-        -->
-        <img
-          src="photo.jpg"
-          alt="Sumit Vaise"
-          id="hero-photo-img"
-          onerror="this.style.display='none';"
-        />
-      </div>
-      <div class="hero-photo-status">Available for hire</div>
     </div>
-
-    </div><!-- end hero-layout -->
   </div>
 </section>
 
-<!-- ─── About ──────────────────────────────────────────────────────────────── -->
+<!-- ─── About ─────────────────────────────────────────────────────────────── -->
 <section id="about">
   <div class="container">
     <div class="fade-up">
@@ -649,25 +539,24 @@
     <div class="about-grid fade-up">
       <div class="about-text">
         <p>
-          I stumbled into ML through a computer vision project at Bosch — spent six months teaching
-          a model to spot defects on a production line, realized I'd found the thing I wanted
-          to do every day, and never looked back.
+          I stumbled into ML through a computer vision project at Bosch — spent six months teaching a model
+          to spot defects on a production line, realised I'd found the thing I wanted to do every day, and
+          never looked back.
         </p>
         <p>
-          These days I work across the full ML stack: designing <strong>RAG pipelines</strong> that
-          reduce analyst research time by 40%, building <strong>real-time fraud detection</strong>
-          systems that flag anomalies in under two seconds across 20M+ daily transactions, and
-          leading teams to take models from notebook to production on GCP and AWS.
+          These days I work across the full ML stack: designing <strong>RAG pipelines</strong> that reduce
+          analyst research time by 40%, building real-time fraud detection systems that flag anomalies in
+          under two seconds across 20M+ daily transactions, and leading teams to take models from notebook to
+          production on GCP and AWS.
         </p>
         <p>
-          What I care most about is the gap between a model that <em>works in a notebook</em>
-          and one that <em>reliably works in production</em>. That's the space I live in — MLOps,
-          observability, CI/CD for ML, and making sure the thing you built six months ago
-          is still the thing running today.
+          What I care most about is the gap between a model that works in a notebook and one that reliably
+          works in production. That's the space I live in — MLOps, observability, CI/CD for ML, and making
+          sure the thing you built six months ago is still the thing running today.
         </p>
         <p>
-          Currently based in <strong>Scarborough, Ontario</strong>. Canadian PR.
-          Open to Senior ML / AI Engineer roles across Canada and the US.
+          Currently based in Scarborough, Ontario. Canadian PR. Open to Senior ML / AI Engineer roles
+          across Canada and the US.
         </p>
       </div>
       <div class="about-cards">
@@ -678,7 +567,7 @@
         </div>
         <div class="about-card">
           <div class="about-card-icon">☁️</div>
-          <h4>Cloud & MLOps</h4>
+          <h4>Cloud &amp; MLOps</h4>
           <p>GCP (Vertex AI, BigQuery ML, GKE) and AWS (SageMaker, EKS, Airflow). End-to-end CI/CD with GitHub Actions and Docker.</p>
         </div>
         <div class="about-card">
@@ -746,7 +635,7 @@
         </div>
         <ul class="tl-bullets">
           <li>Designed, built, and maintained scalable ML pipelines and cloud infrastructure (BigQuery, Vertex AI, Docker, Kubernetes, KubeFlow) for production ML systems serving <strong>14M+</strong> records.</li>
-          <li>Implemented end-to-end Random Forest pipeline predicting insurance policy lapses, identifying the top 2% at-risk customers and directly impacting business retention strategy</li>
+          <li>Implemented end-to-end Random Forest pipeline predicting insurance policy lapses, identifying the top 2% at-risk customers and directly impacting business retention strategy.</li>
           <li>Designed comprehensive monitoring, alerting, and observability systems for ML model health, maintaining strict production SLAs and minimizing incident downtime.</li>
           <li>Partnered with product managers to align ML technical requirements with business stakeholder needs in Agile sprints.</li>
         </ul>
@@ -765,14 +654,14 @@
         <div class="tl-dot"></div>
         <div class="tl-header">
           <div>
-            <div class="tl-title">Senior ML Engineer/Tech Lead</div>
+            <div class="tl-title">Senior ML Engineer / Tech Lead</div>
             <div class="tl-company">Quantiphi Inc. · Toronto, Canada</div>
           </div>
           <span class="tl-date">Jul 2021 – Mar 2024</span>
         </div>
         <ul class="tl-bullets">
-          <li><strong>Inventory Allocation Prediction (Team Lead, Team of 4):</strong> Optimized US shipment locations; Partnered with cross-functional teams and non-technical stakeholders to architect and lead end-to-end ML solution delivery, translating business requirements into rapid ML prototypes and production systems.</li>
-          <li><strong>Insurance Claims Processing (Team of 12):</strong>Implemented a <strong>scalable</strong> Deep Learning classification system on GCP, leveraging <strong>TensorFlow, OCR, PyTorch, and MLOps</strong>, resulting in a 70% speeding up of claims processing and improving operational efficiency.</li>
+          <li><strong>Inventory Allocation Prediction</strong> (Team Lead, Team of 4): Optimised US shipment locations; architected and led end-to-end ML solution delivery, translating business requirements into rapid ML prototypes and production systems.</li>
+          <li><strong>Insurance Claims Processing</strong> (Team of 12): Implemented a scalable Deep Learning classification system on GCP — TensorFlow, OCR, PyTorch, and MLOps — resulting in a <strong>70% speed-up</strong> of claims processing.</li>
           <li>Mentored 3 junior engineers; led bi-weekly ML guild sessions on LLM fine-tuning and retrieval-augmented generation techniques.</li>
           <li>Delivered 6 production ML systems across healthcare, fintech, and media verticals on GCP and AWS.</li>
         </ul>
@@ -793,13 +682,13 @@
         <div class="tl-header">
           <div>
             <div class="tl-title">Data Scientist</div>
-            <div class="tl-company">SalonEveryWhere ·Toronto, Canada</div>
+            <div class="tl-company">SalonEveryWhere · Toronto, Canada</div>
           </div>
           <span class="tl-date">Jan 2021 – Jul 2021</span>
         </div>
         <ul class="tl-bullets">
-          <li>Built a <strong>computer vision pipeline</strong> for hairstyle classification and recommendation using PyTorch CNNs; integrated with iOS/Android app serving 50K+ users.</li>
-          <li><strong>Quantized</strong> models with TensorFlow Lite for mobile deployment, reducing model size while preserving accuracy.</li>
+          <li>Built a computer vision pipeline for hairstyle classification and recommendation using PyTorch CNNs; integrated with iOS/Android app serving <strong>50K+</strong> users.</li>
+          <li>Quantized models with TensorFlow Lite for mobile deployment, reducing model size while preserving accuracy.</li>
         </ul>
         <div class="tl-tags">
           <span class="tl-tag">PyTorch</span>
@@ -822,7 +711,7 @@
         </div>
         <ul class="tl-bullets">
           <li>Built and trained a person re-identification and tracking system using a CNN-based Siamese Network (PyTorch) with a custom GUI (Qt, C++) for real-time inferencing.</li>
-          <li>Reduced the object detection model training time of a CNN for an autonomous driving project by 22% without accuracy loss. Developed a Python algorithm to optimize dataset labeling (dense to sparse) for GPU efficiency. Trained the model on an AWS EC2 instance.</li>
+          <li>Reduced the object detection model training time of a CNN for an autonomous driving project by <strong>22%</strong> without accuracy loss. Developed a Python algorithm to optimise dataset labeling (dense to sparse) for GPU efficiency. Trained the model on an AWS EC2 instance.</li>
         </ul>
         <div class="tl-tags">
           <span class="tl-tag">TensorFlow</span>
@@ -844,7 +733,7 @@
           <span class="tl-date">Jan 2015 – Aug 2017</span>
         </div>
         <ul class="tl-bullets">
-          <li>Led projects in computer vision application development, including medical image stitching (MATLAB, OpenCV, C++) and thermal person detection (Raspberry Pi, 82% accuracy).</li>
+          <li>Led projects in computer vision application development, including medical image stitching (MATLAB, OpenCV, C++) and thermal person detection (Raspberry Pi, <strong>82% accuracy</strong>).</li>
           <li>Developed 3-class object detection using <strong>learning (VGG16) on NVIDIA Jetson-TK1 (96% accuracy).</strong></li>
         </ul>
         <div class="tl-tags">
@@ -855,6 +744,132 @@
           <span class="tl-tag">Python</span>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Projects ───────────────────────────────────────────────────────────── -->
+<section id="projects">
+  <div class="container">
+    <div class="fade-up">
+      <p class="section-tag">Projects</p>
+      <h2 class="section-title">Things I've built</h2>
+      <p class="section-lead">Production-focused. Each project was built to solve a real problem, not just to exist on GitHub.</p>
+    </div>
+    <div class="projects-grid fade-up">
+
+      <!-- ★ NEW: Advanced RAG System -->
+      <div class="project-card featured-card">
+        <div class="project-icon">🧠</div>
+        <div class="project-title">
+          Advanced RAG System v2
+          <span class="project-badge">New</span>
+        </div>
+        <div class="project-desc">
+          Upgraded a basic RAG pipeline into a production-grade system using patterns from Netflix
+          and Amazon — hybrid BM25 + dense retrieval with Reciprocal Rank Fusion, LLM query
+          rewriting (+15–25% recall), cross-encoder reranking, and token-by-token streaming.
+          Evaluated with RAGAS across faithfulness, relevancy, and context precision.
+        </div>
+        <div class="project-metrics">
+          <div class="project-metric">
+            <span class="project-metric-val">0.92</span>
+            <span class="project-metric-label">Faithfulness</span>
+          </div>
+          <div class="project-metric">
+            <span class="project-metric-val">0.88</span>
+            <span class="project-metric-label">Answer Relevancy</span>
+          </div>
+          <div class="project-metric">
+            <span class="project-metric-val">25</span>
+            <span class="project-metric-label">Tests Passing</span>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">LangChain</span>
+          <span class="project-tag">ChromaDB</span>
+          <span class="project-tag">BM25</span>
+          <span class="project-tag">GPT-4o</span>
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">RAGAS</span>
+          <span class="project-tag">Docker</span>
+          <span class="project-tag">GitHub Actions</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Sumit1673/advanced-rag-system" target="_blank" rel="noopener" class="project-link featured">View Code</a>
+          <a href="https://medium.com/@sumitvaish" target="_blank" rel="noopener" class="project-link">Blog Post →</a>
+        </div>
+      </div>
+
+      <!-- RAG Knowledge Assistant (original) -->
+      <div class="project-card">
+        <div class="project-icon">🔍</div>
+        <div class="project-title">RAG Knowledge Assistant</div>
+        <div class="project-desc">
+          A production-grade Retrieval-Augmented Generation system built with LangChain, FAISS,
+          and HuggingFace Sentence Transformers. Ingests multi-format documents (PDF, DOCX, web),
+          chunks intelligently, embeds to a local vector store, and answers questions with source
+          citations. Architected for extensibility — swappable LLM backends (Ollama, OpenAI, Groq).
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">LangChain</span>
+          <span class="project-tag">FAISS</span>
+          <span class="project-tag">HuggingFace</span>
+          <span class="project-tag">Ollama</span>
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">Python</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Sumit1673/knowledge-assistant" target="_blank" rel="noopener" class="project-link featured">View Code</a>
+        </div>
+      </div>
+
+      <!-- Diabetic Retinopathy -->
+      <div class="project-card">
+        <div class="project-icon">👁️</div>
+        <div class="project-title">Diabetic Retinopathy Detection</div>
+        <div class="project-desc">
+          Deep learning pipeline for automated diabetic retinopathy severity grading from
+          retinal fundus images. Uses a fine-tuned EfficientNet backbone with custom augmentation
+          strategy for handling class imbalance in medical imaging datasets.
+          Achieves clinician-grade accuracy on the APTOS benchmark.
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">PyTorch</span>
+          <span class="project-tag">EfficientNet</span>
+          <span class="project-tag">Medical Imaging</span>
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">Python</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Sumit1673/Diabetic-Retinopathy-Analysis-PyTorch" target="_blank" rel="noopener" class="project-link featured">View Code</a>
+        </div>
+      </div>
+
+      <!-- Insurance Claims -->
+      <div class="project-card">
+        <div class="project-icon">📋</div>
+        <div class="project-title">Insurance Claims Processing (GCP)</div>
+        <div class="project-desc">
+          End-to-end ML pipeline for automated insurance claims classification and routing,
+          built on Google Cloud Platform. Combines Document AI for structured extraction,
+          BERT-based NLP for intent classification, and BigQuery ML for risk scoring.
+          Deployed on GKE with KubeFlow orchestration and real-time monitoring.
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">GCP</span>
+          <span class="project-tag">Document AI</span>
+          <span class="project-tag">Vertex AI</span>
+          <span class="project-tag">BigQuery ML</span>
+          <span class="project-tag">KubeFlow</span>
+          <span class="project-tag">GKE</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Sumit1673" target="_blank" rel="noopener" class="project-link featured">View Code</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -889,95 +904,7 @@
   </div>
 </section>
 
-<!-- ─── Projects ───────────────────────────────────────────────────────────── -->
-<section id="projects">
-  <div class="container">
-    <div class="fade-up">
-      <p class="section-tag">Projects</p>
-      <h2 class="section-title">Things I've built</h2>
-      <p class="section-lead">Production-focused. Each project was built to solve a real problem, not just to exist on GitHub.</p>
-    </div>
-    <div class="projects-grid fade-up">
-
-      <div class="project-card">
-        <div class="project-icon">🔍</div>
-        <div class="project-title">RAG Knowledge Assistant</div>
-        <div class="project-desc">
-          A production-grade Retrieval-Augmented Generation system built with LangChain, FAISS,
-          and HuggingFace Sentence Transformers. Ingests multi-format documents (PDF, DOCX, web),
-          chunks intelligently, embeds to a local vector store, and answers questions with source
-          citations. Architected for extensibility — swappable LLM backends (Ollama, OpenAI, Groq).
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">LangChain</span>
-          <span class="project-tag">FAISS</span>
-          <span class="project-tag">HuggingFace</span>
-          <span class="project-tag">Ollama</span>
-          <span class="project-tag">FastAPI</span>
-          <span class="project-tag">Python</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Sumit1673/knowledge-assistant" target="_blank" rel="noopener" class="project-link featured">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.31 9.42 7.9 10.95.58.1.79-.25.79-.56v-2.07c-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.19a11.08 11.08 0 012.9-.39c.99 0 1.98.13 2.9.39 2.2-1.5 3.17-1.19 3.17-1.19.64 1.58.24 2.75.12 3.04.74.81 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.15v3.19c0 .31.21.67.8.56C20.2 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
-            View Code
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">👁️</div>
-        <div class="project-title">Diabetic Retinopathy Detection</div>
-        <div class="project-desc">
-          Deep learning pipeline for automated diabetic retinopathy severity grading from
-          retinal fundus images. Uses a fine-tuned EfficientNet backbone with custom augmentation
-          strategy for handling class imbalance in medical imaging datasets.
-          Achieves clinician-grade accuracy on the APTOS benchmark.
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">PyTorch</span>
-          <span class="project-tag">EfficientNet</span>
-          <span class="project-tag">Medical Imaging</span>
-          <span class="project-tag">OpenCV</span>
-          <span class="project-tag">Python</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Sumit1673/Diabetic-Retinopathy-Analysis-PyTorch" target="_blank" rel="noopener" class="project-link featured">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.31 9.42 7.9 10.95.58.1.79-.25.79-.56v-2.07c-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.19a11.08 11.08 0 012.9-.39c.99 0 1.98.13 2.9.39 2.2-1.5 3.17-1.19 3.17-1.19.64 1.58.24 2.75.12 3.04.74.81 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.15v3.19c0 .31.21.67.8.56C20.2 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
-            View Code
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">📋</div>
-        <div class="project-title">Insurance Claims Processing (GCP)</div>
-        <div class="project-desc">
-          End-to-end ML pipeline for automated insurance claims classification and routing,
-          built on Google Cloud Platform. Combines Document AI for structured extraction,
-          BERT-based NLP for intent classification, and BigQuery ML for risk scoring.
-          Deployed on GKE with KubeFlow orchestration and real-time monitoring.
-        </div>
-        <div class="project-tags">
-          <span class="project-tag">GCP</span>
-          <span class="project-tag">Document AI</span>
-          <span class="project-tag">Vertex AI</span>
-          <span class="project-tag">BigQuery ML</span>
-          <span class="project-tag">KubeFlow</span>
-          <span class="project-tag">GKE</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Sumit1673" target="_blank" rel="noopener" class="project-link">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.31 9.42 7.9 10.95.58.1.79-.25.79-.56v-2.07c-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.19a11.08 11.08 0 012.9-.39c.99 0 1.98.13 2.9.39 2.2-1.5 3.17-1.19 3.17-1.19.64 1.58.24 2.75.12 3.04.74.81 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.15v3.19c0 .31.21.67.8.56C20.2 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
-            GitHub
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── Skills ─────────────────────────────────────────────────────────────── -->
+<!-- ─── Skills ────────────────────────────────────────────────────────────── -->
 <section id="skills">
   <div class="container">
     <div class="fade-up">
@@ -991,11 +918,16 @@
         <div class="skill-group-label">AI / ML / GenAI</div>
         <div class="skill-chips">
           <span class="chip">RAG Pipelines</span>
+          <span class="chip">Advanced RAG</span>
+          <span class="chip">Hybrid Search</span>
           <span class="chip">LangChain</span>
           <span class="chip">LLM Fine-tuning</span>
           <span class="chip">HuggingFace Transformers</span>
           <span class="chip">BERT / RoBERTa</span>
           <span class="chip">Sentence Transformers</span>
+          <span class="chip">Cross-Encoder Reranking</span>
+          <span class="chip">RAGAS Evaluation</span>
+          <span class="chip">Query Rewriting</span>
           <span class="chip">Agentic Workflows</span>
           <span class="chip">Prompt Engineering</span>
           <span class="chip">Scikit-learn</span>
@@ -1004,7 +936,7 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">Deep Learning & Computer Vision</div>
+        <div class="skill-group-label">Deep Learning &amp; Computer Vision</div>
         <div class="skill-chips">
           <span class="chip">PyTorch</span>
           <span class="chip">TensorFlow</span>
@@ -1018,12 +950,14 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">Vector Stores & Search</div>
+        <div class="skill-group-label">Vector Stores &amp; Search</div>
         <div class="skill-chips">
           <span class="chip">ChromaDB</span>
           <span class="chip">FAISS</span>
           <span class="chip">OpenSearch</span>
           <span class="chip">Pinecone</span>
+          <span class="chip">BM25 (Sparse Retrieval)</span>
+          <span class="chip">Reciprocal Rank Fusion</span>
           <span class="chip">Semantic Search</span>
           <span class="chip">Hybrid Retrieval</span>
         </div>
@@ -1058,7 +992,7 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">MLOps & Infrastructure</div>
+        <div class="skill-group-label">MLOps &amp; Infrastructure</div>
         <div class="skill-chips">
           <span class="chip">Docker</span>
           <span class="chip">Kubernetes</span>
@@ -1066,6 +1000,7 @@
           <span class="chip">GitHub Actions</span>
           <span class="chip">Jenkins</span>
           <span class="chip">FastAPI</span>
+          <span class="chip">Streaming SSE</span>
           <span class="chip">Grafana</span>
           <span class="chip">Prometheus</span>
           <span class="chip">CI/CD for ML</span>
@@ -1074,7 +1009,7 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">Languages & Data</div>
+        <div class="skill-group-label">Languages &amp; Data</div>
         <div class="skill-chips">
           <span class="chip">Python</span>
           <span class="chip">SQL</span>
@@ -1090,7 +1025,7 @@
   </div>
 </section>
 
-<!-- ─── Blog ───────────────────────────────────────────────────────────────── -->
+<!-- ─── Blog ──────────────────────────────────────────────────────────────── -->
 <section id="blog">
   <div class="container">
     <div class="fade-up">
@@ -1102,15 +1037,58 @@
       </p>
     </div>
 
-    <!-- Posts load here dynamically via JS -->
     <div class="blog-grid fade-up" id="blog-grid">
-      <div class="blog-loading">
-        <div class="blog-spinner"></div>
-        Loading latest posts…
-      </div>
+      <!-- Static entry for new Advanced RAG post — always shown first -->
+      <a class="blog-card" href="https://medium.com/@sumitvaish" target="_blank" rel="noopener">
+        <div class="blog-card-thumb"><div class="blog-card-thumb-placeholder">🔍</div></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-date">Apr 2026</span>
+            <span class="blog-card-tag">RAG</span>
+          </div>
+          <div class="blog-card-title">From Basic to Production-Grade RAG: Hybrid Search, Reranking &amp; Streaming in Python</div>
+          <div class="blog-card-excerpt">How I upgraded a simple vector-search chatbot using hybrid BM25 + dense retrieval, cross-encoder reranking, LLM query rewriting, and streaming SSE — the same patterns used by Netflix and Amazon.</div>
+          <span class="blog-card-cta">Read on Medium <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a class="blog-card" href="https://medium.com/@sumitvaish/triplet-loss-your-key-to-unlocking-the-similarities-in-your-data-using-tf-d6918d323785" target="_blank" rel="noopener">
+        <div class="blog-card-thumb"><div class="blog-card-thumb-placeholder">🐍</div></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-date">Dec 19, 2023</span>
+            <span class="blog-card-tag">nlp</span>
+          </div>
+          <div class="blog-card-title">Triplet Loss: Your Key to Unlocking the Similarities in Your Data Using TF</div>
+          <div class="blog-card-excerpt">If you want to skip the story of Triplet Loss and want to play with the code check this link. Continue reading on Medium »…</div>
+          <span class="blog-card-cta">Read on Medium <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a class="blog-card" href="https://medium.com/@sumitvaish/demystifying-named-entity-recognition-in-tensorflow" target="_blank" rel="noopener">
+        <div class="blog-card-thumb"><div class="blog-card-thumb-placeholder">📝</div></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-date">Dec 16, 2023</span>
+            <span class="blog-card-tag">nlp</span>
+          </div>
+          <div class="blog-card-title">Demystifying Named Entity Recognition in TensorFlow</div>
+          <div class="blog-card-excerpt">Unveiling the Magic Behind "Who, What, Where" — a practical guide to NER with TensorFlow.</div>
+          <span class="blog-card-cta">Read on Medium <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a class="blog-card" href="https://medium.com/@sumitvaish/are-you-struggling-to-stay-productive" target="_blank" rel="noopener">
+        <div class="blog-card-thumb"><div class="blog-card-thumb-placeholder">🚀</div></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-date">Nov 30, 2023</span>
+            <span class="blog-card-tag">productivity</span>
+          </div>
+          <div class="blog-card-title">Are you struggling to stay productive?</div>
+          <div class="blog-card-excerpt">You're not alone. There's a lot going on in the world right now — here's how to stay focused when the days are getting shorter.</div>
+          <span class="blog-card-cta">Read on Medium <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
     </div>
 
-    <!-- Subscribe strip -->
     <div class="subscribe-strip fade-up">
       <div class="subscribe-left">
         <h3>Get notified when I publish</h3>
@@ -1121,23 +1099,15 @@
         </div>
       </div>
       <div>
-        <form class="subscribe-form" id="subscribe-form" onsubmit="handleSubscribe(event)">
-          <input
-            type="email"
-            class="subscribe-input"
-            placeholder="your@email.com"
-            required
-            id="subscribe-email"
-          />
-          <button type="submit" class="subscribe-btn">Subscribe →</button>
+        <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+          <input id="subscribe-email" class="subscribe-input" type="email" placeholder="your@email.com" required />
+          <button class="subscribe-btn" type="submit">Subscribe →</button>
         </form>
-        <p style="font-size:11px;color:var(--text-dim);margin-top:8px;text-align:right;">
-          Or follow directly on
-          <a href="https://medium.com/@sumitvaish" target="_blank" rel="noopener" style="color:var(--text-muted);">Medium</a>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:10px;">
+          Or follow directly on <a href="https://medium.com/@sumitvaish" target="_blank" rel="noopener">Medium</a>
         </p>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1158,11 +1128,11 @@
           sumitvaise29@gmail.com
         </a>
         <a href="https://linkedin.com/in/sumit-vaise-6644514b" target="_blank" rel="noopener" class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 01-2.06-2.06 2.06 2.06 0 012.06-2.06 2.06 2.06 0 012.06 2.06 2.06 2.06 0 01-2.06 2.06zm1.78 13.02H3.56V9h3.56v11.45z"/></svg>
           LinkedIn
         </a>
         <a href="https://github.com/Sumit1673" target="_blank" rel="noopener" class="contact-item">
-          <svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.31 9.42 7.9 10.95.58.1.79-.25.79-.56v-2.07c-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.19a11.08 11.08 0 012.9-.39c.99 0 1.98.13 2.9.39 2.2-1.5 3.17-1.19 3.17-1.19.64 1.58.24 2.75.12 3.04.74.81 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.27 5.7.42.36.78 1.07.78 2.15v3.19c0 .31.21.67.8.56C20.2 21.42 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           GitHub
         </a>
       </div>
@@ -1170,21 +1140,19 @@
   </div>
 </section>
 
-<!-- ─── Footer ─────────────────────────────────────────────────────────────── -->
+<!-- ─── Footer ────────────────────────────────────────────────────────────── -->
 <footer>
   <div class="container">
-    <p>Built with HTML, CSS &amp; a bit of JavaScript · Sumit Vaise &copy; 2026 · Scarborough, Ontario</p>
+    <p>Built with HTML, CSS &amp; a bit of JavaScript · Sumit Vaise © 2026 · Scarborough, Ontario</p>
   </div>
 </footer>
 
-<!-- ─── JS ─────────────────────────────────────────────────────────────────── -->
 <script>
   // Mobile nav toggle
   function toggleMenu() {
     const menu = document.getElementById('navMenu');
     menu.classList.toggle('open');
   }
-  // Close nav on link click
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       document.getElementById('navMenu').classList.remove('open');
@@ -1210,154 +1178,17 @@
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
     navLinks.forEach(a => {
       a.style.color = a.getAttribute('href') === '#' + current ? '#a5b4fc' : '';
     });
   }, { passive: true });
 
-  // ── Medium Blog Feed ────────────────────────────────────────────────────────
-  // Uses rss2json.com as a CORS-friendly RSS proxy (free tier: 10k req/mo)
-  const MEDIUM_USER = 'sumitvaish';
-  // rss2json free tier — no 'count' param (requires paid key)
-  const RSS_API_PRIMARY   = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://medium.com/feed/@' + MEDIUM_USER)}`;
-  // allorigins fallback — returns raw RSS XML which we parse manually
-  const RSS_API_FALLBACK  = `https://api.allorigins.win/get?url=${encodeURIComponent('https://medium.com/feed/@' + MEDIUM_USER)}`;
-
-  // Emoji fallback icons based on topic keywords
-  function getEmoji(title, cats) {
-    const text = (title + ' ' + (cats||[]).join(' ')).toLowerCase();
-    if (text.includes('rag') || text.includes('retrieval')) return '🔍';
-    if (text.includes('llm') || text.includes('language model')) return '🤖';
-    if (text.includes('mlops') || text.includes('deploy') || text.includes('produc')) return '🚀';
-    if (text.includes('vision') || text.includes('image') || text.includes('cv')) return '👁️';
-    if (text.includes('python') || text.includes('code')) return '🐍';
-    if (text.includes('data') || text.includes('analytics')) return '📊';
-    if (text.includes('cloud') || text.includes('gcp') || text.includes('aws')) return '☁️';
-    if (text.includes('nlp') || text.includes('text') || text.includes('bert')) return '📝';
-    return '✍️';
-  }
-
-  function stripHtml(html) {
-    const tmp = document.createElement('div');
-    tmp.innerHTML = html;
-    return tmp.textContent || tmp.innerText || '';
-  }
-
-  function formatDate(dateStr) {
-    const d = new Date(dateStr);
-    return d.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' });
-  }
-
-  function renderBlogCards(items) {
-    const grid = document.getElementById('blog-grid');
-    if (!items || items.length === 0) {
-      grid.innerHTML = `<div class="blog-error">No posts yet — <a href="https://medium.com/@${MEDIUM_USER}" target="_blank" rel="noopener">check back soon</a>.</div>`;
-      return;
-    }
-    grid.innerHTML = items.map(item => {
-      const emoji = getEmoji(item.title, item.categories);
-      const excerpt = stripHtml(item.description || item.content || '').slice(0, 180).trim() + '…';
-      const tag = (item.categories && item.categories[0]) || 'Machine Learning';
-      const thumb = item.thumbnail && item.thumbnail.startsWith('http')
-        ? `<img src="${item.thumbnail}" alt="" loading="lazy" />`
-        : `<div class="blog-card-thumb-placeholder">${emoji}</div>`;
-      return `
-        <a class="blog-card" href="${item.link}" target="_blank" rel="noopener">
-          <div class="blog-card-thumb">${thumb}</div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta">
-              <span class="blog-card-date">${formatDate(item.pubDate)}</span>
-              <span class="blog-card-tag">${tag}</span>
-            </div>
-            <div class="blog-card-title">${item.title}</div>
-            <div class="blog-card-excerpt">${excerpt}</div>
-            <span class="blog-card-cta">
-              Read on Medium
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>`;
-    }).join('');
-    // Trigger observer for new cards
-    grid.querySelectorAll('.blog-card').forEach(el => observer.observe(el));
-  }
-
-  // Parse raw RSS XML (used by allorigins fallback)
-  function parseRssXml(xmlStr) {
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(xmlStr, 'text/xml');
-    const items = Array.from(xml.querySelectorAll('item')).slice(0, 6);
-    return items.map(item => ({
-      title:       item.querySelector('title')?.textContent || '',
-      link:        item.querySelector('link')?.textContent  || '',
-      pubDate:     item.querySelector('pubDate')?.textContent || '',
-      description: item.querySelector('description')?.textContent || '',
-      content:     item.querySelector('encoded')?.textContent || '',
-      categories:  Array.from(item.querySelectorAll('category')).map(c => c.textContent),
-      thumbnail:   item.querySelector('thumbnail')?.getAttribute('url') || ''
-    }));
-  }
-
-  async function loadMediumPosts() {
-    const grid = document.getElementById('blog-grid');
-
-    // ── Attempt 1: rss2json (JSON response, easiest to parse) ───────────────
-    try {
-      const res = await fetch(RSS_API_PRIMARY, { signal: AbortSignal.timeout(6000) });
-      if (!res.ok) throw new Error('rss2json http error');
-      const data = await res.json();
-      if (data.status === 'ok' && data.items && data.items.length > 0) {
-        renderBlogCards(data.items);
-        return;
-      }
-      throw new Error('rss2json empty or error status');
-    } catch (e1) {
-      console.warn('rss2json failed, trying allorigins…', e1.message);
-    }
-
-    // ── Attempt 2: allorigins CORS proxy → parse raw RSS XML ────────────────
-    try {
-      const res = await fetch(RSS_API_FALLBACK, { signal: AbortSignal.timeout(8000) });
-      if (!res.ok) throw new Error('allorigins http error');
-      const data = await res.json();
-      if (!data.contents) throw new Error('allorigins empty');
-      const items = parseRssXml(data.contents);
-      if (items.length > 0) {
-        renderBlogCards(items);
-        return;
-      }
-      throw new Error('allorigins parsed 0 items');
-    } catch (e2) {
-      console.warn('allorigins failed too:', e2.message);
-    }
-
-    // ── Fallback: friendly "read on Medium" link ─────────────────────────────
-    grid.innerHTML = `
-      <div class="blog-error">
-        <p style="margin-bottom:12px;">Posts couldn't load automatically — read them directly on Medium.</p>
-        <a href="https://medium.com/@${MEDIUM_USER}" target="_blank" rel="noopener"
-           style="display:inline-flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--border);color:var(--text);font-size:14px;font-weight:600;padding:10px 20px;border-radius:8px;text-decoration:none;">
-          Read on Medium →
-        </a>
-      </div>`;
-  }
-  loadMediumPosts();
-
-  // ── Subscribe form ──────────────────────────────────────────────────────────
-  // TODO: wire this up to your email platform of choice.
-  // Recommended: Substack (free/paid built-in), Ghost, or Buttondown.
-  // For Substack: replace the form action or redirect to your substack.com/embed URL.
+  // Subscribe form
   function handleSubscribe(e) {
     e.preventDefault();
     const email = document.getElementById('subscribe-email').value;
     const btn = e.target.querySelector('.subscribe-btn');
-    // ── Replace this with your actual email platform signup endpoint ──────────
-    // Example Substack embed: window.open(`https://YOUR_NAME.substack.com/?email=${encodeURIComponent(email)}`, '_blank');
-    // Example Mailchimp: post to your Mailchimp form action URL
-    // ─────────────────────────────────────────────────────────────────────────
     btn.textContent = '✓ Subscribed!';
     btn.style.background = 'var(--green)';
     btn.style.color = '#0d0f14';
@@ -1370,6 +1201,5 @@
     console.log('Subscriber email (wire up to your platform):', email);
   }
 </script>
-
 </body>
 </html>
