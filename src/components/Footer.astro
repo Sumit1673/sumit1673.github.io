@@ -1,0 +1,23 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container">
+    <p>
+      Built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>
+      · Deployed on <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a>
+      · Sumit Vaise © {year} · Scarborough, Ontario
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--bg2); border-top: 1px solid var(--border);
+    padding: 28px 0; text-align: center;
+  }
+  p { font-size: 12px; color: var(--text-dim); }
+  a { color: var(--text-muted); }
+  a:hover { color: var(--accent3); }
+</style>

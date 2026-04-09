@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Education from '../components/Education.astro';
+import Skills from '../components/Skills.astro';
+import Blog from '../components/Blog.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Nav />
+  <main>
+    <Hero />
+    <About />
+    <Experience />
+    <Projects />
+    <Education />
+    <Skills />
+    <Blog />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Intersection observer for scroll fade-in animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+
+          // Stagger children
+          const children = entry.target.querySelectorAll<HTMLElement>(
+            '.item, .card, .group, .chip, .link'
+          );
+          children.forEach((el, i) => {
+            el.style.transitionDelay = `${i * 60}ms`;
+            el.classList.add('fade-up', 'visible');
+          });
+        }
+      });
+    },
+    { threshold: 0.07 }
+  );
+
+  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+</script>

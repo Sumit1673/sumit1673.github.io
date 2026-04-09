@@ -1,0 +1,92 @@
+---
+const cards = [
+  {
+    icon: '🧠',
+    title: 'Core Strength',
+    body: 'RAG systems, LLM applications, and production-grade NLP pipelines using LangChain, HuggingFace, and OpenSearch.',
+  },
+  {
+    icon: '☁️',
+    title: 'Cloud & MLOps',
+    body: 'GCP (Vertex AI, BigQuery ML, GKE) and AWS (SageMaker, EKS, Airflow). End-to-end CI/CD with GitHub Actions and Docker.',
+  },
+  {
+    icon: '👁️',
+    title: 'Also builds',
+    body: 'Computer vision models for medical imaging (diabetic retinopathy detection) and industrial quality inspection.',
+  },
+  {
+    icon: '📍',
+    title: 'Location',
+    body: 'Scarborough, Ontario · Canadian PR · Remote / Hybrid / On-site open.',
+  },
+];
+---
+
+<section id="about">
+  <div class="container">
+    <div class="fade-up">
+      <p class="section-tag">About</p>
+      <h2 class="section-title">The quick version</h2>
+    </div>
+    <div class="grid fade-up">
+      <div class="prose">
+        <p>
+          I stumbled into ML through a computer vision project at Bosch — spent six months teaching a
+          model to spot defects on a production line, realised I'd found the thing I wanted to do every
+          day, and never looked back.
+        </p>
+        <p>
+          These days I work across the full ML stack: designing <strong>RAG pipelines</strong> that
+          reduce analyst research time by 40%, building real-time fraud detection systems that flag
+          anomalies in under two seconds across 20M+ daily transactions, and leading teams to take
+          models from notebook to production on GCP and AWS.
+        </p>
+        <p>
+          What I care most about is the gap between a model that works in a notebook and one that
+          reliably works in production. That's the space I live in — MLOps, observability, CI/CD for ML,
+          and making sure the thing you built six months ago is still the thing running today.
+        </p>
+        <p>
+          Currently based in Scarborough, Ontario. Canadian PR. Open to Staff ML / AI Engineer roles
+          across Canada and the US.
+        </p>
+      </div>
+
+      <div class="cards">
+        {cards.map(c => (
+          <div class="card">
+            <span class="icon">{c.icon}</span>
+            <h4>{c.title}</h4>
+            <p>{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 48px; align-items: start; margin-top: 40px;
+  }
+  .prose p { color: var(--text-muted); font-size: 15px; margin-bottom: 18px; line-height: 1.8; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--text); }
+
+  .cards { display: flex; flex-direction: column; gap: 14px; }
+  .card {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px;
+    transition: border-color .2s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .icon { font-size: 20px; display: block; margin-bottom: 6px; }
+  .card h4 { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .card p { font-size: 13px; color: var(--text-muted); margin: 0; }
+
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>

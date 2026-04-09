@@ -1,0 +1,112 @@
+---
+import { projects } from '../data/projects';
+---
+
+<section id="projects">
+  <div class="container">
+    <div class="fade-up">
+      <p class="section-tag">Projects</p>
+      <h2 class="section-title">Things I've built</h2>
+      <p class="section-lead">Production-focused. Each project was built to solve a real problem, not just to exist on GitHub.</p>
+    </div>
+
+    <div class="grid fade-up">
+      {projects.map(p => (
+        <div class:list={['card', { featured: p.featured }]}>
+          <div class="icon">{p.icon}</div>
+          <div class="title">
+            {p.title}
+            {p.badge && <span class="badge">{p.badge}</span>}
+          </div>
+          <p class="desc">{p.description}</p>
+
+          {p.metrics && (
+            <div class="metrics">
+              {p.metrics.map(m => (
+                <div class="metric">
+                  <span class="metric-val">{m.value}</span>
+                  <span class="metric-label">{m.label}</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div class="tags">
+            {p.tags.map(t => <span class="tag">{t}</span>)}
+          </div>
+
+          <div class="links">
+            {p.links.map(l => (
+              <a href={l.href} target="_blank" rel="noopener" class:list={['link', { 'link-featured': l.featured }]}>
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 22px; margin-top: 16px;
+  }
+  .card {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 28px 26px;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .card:hover {
+    border-color: var(--accent); transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(99,102,241,.12);
+  }
+  .card.featured {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(99,102,241,.3), 0 4px 24px rgba(99,102,241,.1);
+  }
+
+  .icon { font-size: 28px; }
+  .title { font-size: 15px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .badge {
+    font-size: 10px; font-weight: 700;
+    background: var(--accent); color: #fff;
+    padding: 2px 9px; border-radius: 99px;
+    text-transform: uppercase; letter-spacing: .5px;
+  }
+  .desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; flex: 1; }
+
+  .metrics { display: flex; gap: 12px; flex-wrap: wrap; }
+  .metric {
+    background: rgba(99,102,241,.08); border: 1px solid rgba(99,102,241,.18);
+    border-radius: 6px; padding: 6px 12px; text-align: center;
+  }
+  .metric-val { font-size: 15px; font-weight: 700; color: var(--accent2); display: block; }
+  .metric-label { font-size: 10px; color: var(--text-muted); }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag {
+    font-size: 11px; font-weight: 500; color: var(--text-muted);
+    background: var(--bg2); border: 1px solid var(--border);
+    padding: 3px 9px; border-radius: 4px;
+  }
+
+  .links { display: flex; gap: 12px; margin-top: auto; }
+  .link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600; color: var(--accent2);
+    border: 1px solid var(--border); padding: 7px 14px;
+    border-radius: 6px; transition: border-color .2s, color .2s;
+  }
+  .link:hover { border-color: var(--accent2); color: var(--accent3); }
+  .link-featured {
+    background: var(--accent); color: #fff !important; border-color: var(--accent) !important;
+  }
+  .link-featured:hover { background: var(--accent2); border-color: var(--accent2) !important; }
+
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

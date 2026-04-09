@@ -1,0 +1,19 @@
+# Build output
+dist/
+.vercel/
+
+# Dependencies
+node_modules/
+
+# Astro generated
+.astro/
+src/env.d.ts
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
