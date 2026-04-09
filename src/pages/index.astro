@@ -15,16 +15,22 @@ const recent = posts.slice(0, 2);
     <div class="hero-text">
       <span class="eyebrow">Staff ML Engineer · Scarborough, ON</span>
       <h1 class="display">
-        Building ML systems<br/>
-        <span>that ship.</span>
+        From model training<br/>
+        <span>to production.</span>
       </h1>
       <p class="hero-sub">
-        I specialise in RAG pipelines, production LLM applications, and end-to-end
-        MLOps infrastructure that handles millions of events daily on GCP and AWS.
-        9 years turning notebooks into production systems.
+        9 years building the full ML stack — deep learning models (CNNs, Transformers, EfficientNet),
+        RAG pipelines, LLM applications, and the MLOps infrastructure to run them at scale on GCP and AWS.
+        I lead teams, ship systems, and close the gap between a notebook and production.
       </p>
+      <div class="hero-pills">
+        <span class="pill">🧠 Deep Learning</span>
+        <span class="pill">🔍 GenAI / RAG</span>
+        <span class="pill">☁️ MLOps</span>
+        <span class="pill">👥 Tech Lead</span>
+      </div>
       <div class="hero-actions">
-        <a href="/work" class="btn-primary">View my work →</a>
+        <a href="/projects" class="btn-primary">View projects →</a>
         <a href="/about" class="btn-ghost">About me</a>
       </div>
     </div>
@@ -33,14 +39,16 @@ const recent = posts.slice(0, 2);
         <span class="mono-label">// current_status.py</span>
         <span class="status-dot"></span>
       </div>
-      <pre class="code-block"><code><span class="c">name</span>    <span class="eq">=</span> <span class="s">"Sumit Vaise"</span>
-<span class="c">role</span>    <span class="eq">=</span> <span class="s">"Staff ML Engineer"</span>
-<span class="c">stack</span>   <span class="eq">=</span> [<span class="s">"RAG"</span>, <span class="s">"LangChain"</span>, <span class="s">"GCP"</span>, <span class="s">"AWS"</span>]
-<span class="c">open_to</span> <span class="eq">=</span> <span class="kw">True</span>  <span class="cm"># new opportunities</span></code></pre>
+      <pre class="code-block"><code><span class="c">name</span>      <span class="eq">=</span> <span class="s">"Sumit Vaise"</span>
+<span class="c">role</span>      <span class="eq">=</span> <span class="s">"Staff ML Engineer"</span>
+<span class="c">languages</span> <span class="eq">=</span> [<span class="s">"Python"</span>, <span class="s">"C++"</span>, <span class="s">"SQL"</span>]
+<span class="c">dl_stack</span>  <span class="eq">=</span> [<span class="s">"PyTorch"</span>, <span class="s">"TensorFlow"</span>, <span class="s">"HuggingFace"</span>]
+<span class="c">cloud</span>     <span class="eq">=</span> [<span class="s">"GCP"</span>, <span class="s">"AWS"</span>]
+<span class="c">open_to</span>   <span class="eq">=</span> <span class="kw">True</span>  <span class="cm"># new opportunities</span></code></pre>
       <div class="hero-metrics">
         <div class="hm-item">
           <span class="hm-val">9+</span>
-          <span class="hm-label">Years</span>
+          <span class="hm-label">Years exp.</span>
         </div>
         <div class="hm-item">
           <span class="hm-val">20M+</span>
@@ -52,19 +60,71 @@ const recent = posts.slice(0, 2);
         </div>
         <div class="hm-item">
           <span class="hm-val">0.92</span>
-          <span class="hm-label">RAG faithfulness</span>
+          <span class="hm-label">RAG score</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Capability strips ─────────────────────────────────────────── -->
+  <section class="caps-section rv" data-d="100">
+    <div class="cap-row">
+      <div class="cap">
+        <span class="cap-icon">🧠</span>
+        <div>
+          <div class="cap-title">Deep Learning</div>
+          <div class="cap-sub">CNNs · Transformers · EfficientNet · ResNet · Object Detection · Medical Imaging</div>
+        </div>
+      </div>
+      <div class="cap">
+        <span class="cap-icon">🔍</span>
+        <div>
+          <div class="cap-title">GenAI & RAG</div>
+          <div class="cap-sub">LangChain · LLM Fine-tuning · Hybrid Search · Reranking · Agentic Workflows</div>
+        </div>
+      </div>
+      <div class="cap">
+        <span class="cap-icon">☁️</span>
+        <div>
+          <div class="cap-title">MLOps & Cloud</div>
+          <div class="cap-sub">Vertex AI · SageMaker · Kubernetes · MLflow · CI/CD · Model Monitoring</div>
+        </div>
+      </div>
+      <div class="cap">
+        <span class="cap-icon">👥</span>
+        <div>
+          <div class="cap-title">Leadership</div>
+          <div class="cap-sub">Tech Lead · Team of 12 · Mentoring · ML Guild · Cross-functional delivery</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ─── Tech bar ──────────────────────────────────────────────────── -->
-  <section class="tech-bar rv" data-d="200">
-    <span class="tb-label">Core stack</span>
-    <div class="tb-chips">
-      {['Python', 'LangChain', 'PyTorch', 'Vertex AI', 'SageMaker', 'Kubernetes', 'MLflow', 'FastAPI', 'ChromaDB', 'RAGAS'].map(t => (
-        <span class="tb-chip">{t}</span>
-      ))}
+  <section class="tech-bar rv" data-d="150">
+    <div class="tb-group">
+      <span class="tb-label">Languages</span>
+      <div class="tb-chips">
+        {['Python', 'C++', 'SQL', 'Bash', 'PySpark'].map(t => (
+          <span class="tb-chip">{t}</span>
+        ))}
+      </div>
+    </div>
+    <div class="tb-group">
+      <span class="tb-label">Deep Learning</span>
+      <div class="tb-chips">
+        {['PyTorch', 'TensorFlow', 'HuggingFace', 'EfficientNet', 'OpenCV'].map(t => (
+          <span class="tb-chip">{t}</span>
+        ))}
+      </div>
+    </div>
+    <div class="tb-group">
+      <span class="tb-label">GenAI / MLOps</span>
+      <div class="tb-chips">
+        {['LangChain', 'ChromaDB', 'RAGAS', 'MLflow', 'Kubernetes', 'FastAPI'].map(t => (
+          <span class="tb-chip">{t}</span>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -121,7 +181,7 @@ const recent = posts.slice(0, 2);
         </div>
       </div>
     </div>
-    <a href="/work" class="see-all rv" data-d="150">See all projects →</a>
+    <a href="/projects" class="see-all rv" data-d="150">See all projects →</a>
   </section>
 
   <!-- ─── Recent posts ──────────────────────────────────────────────── -->
@@ -161,6 +221,14 @@ const recent = posts.slice(0, 2);
   .hero-sub {
     font-size: 15px; color: var(--text-2); line-height: 1.8;
     max-width: 500px; margin-bottom: 32px;
+  }
+  .hero-pills {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
+  }
+  .pill {
+    font-size: 12px; font-weight: 500; color: var(--text-2);
+    background: var(--bg3); border: 1px solid var(--border);
+    padding: 4px 12px; border-radius: 99px;
   }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
@@ -221,14 +289,36 @@ const recent = posts.slice(0, 2);
   .hm-val { display: block; font-family: var(--mono); font-size: 16px; font-weight: 700; color: var(--accent3); }
   .hm-label { font-size: 10px; color: var(--text-3); margin-top: 2px; display: block; }
 
+  /* ─── Capability strips ─────────────────────────────────────── */
+  .caps-section { margin-bottom: 0; }
+  .cap-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: var(--r2);
+    overflow: hidden;
+  }
+  .cap {
+    background: var(--bg2); padding: 20px 18px;
+    display: flex; align-items: flex-start; gap: 12px;
+    transition: background .15s;
+  }
+  .cap:hover { background: var(--bg3); }
+  .cap-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .cap-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .cap-sub { font-size: 11px; color: var(--text-3); line-height: 1.6; }
+
   /* ─── Tech bar ──────────────────────────────────────────────── */
   .tech-bar {
-    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    display: flex; gap: 32px; flex-wrap: wrap;
     padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
     margin-bottom: 80px;
   }
-  .tb-label { font-family: var(--mono); font-size: 11px; color: var(--text-3); white-space: nowrap; }
-  .tb-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tb-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .tb-label {
+    font-family: var(--mono); font-size: 10px; font-weight: 600;
+    color: var(--text-3); text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;
+  }
+  .tb-chips { display: flex; gap: 5px; flex-wrap: wrap; }
   .tb-chip {
     font-family: var(--mono); font-size: 11px; color: var(--text-2);
     background: var(--bg3); border: 1px solid var(--border);
@@ -342,9 +432,12 @@ const recent = posts.slice(0, 2);
     .hm-item:nth-child(2) { border-right: none; }
     .featured-card { grid-template-columns: 1fr; }
     .fc-right { border-left: none; border-top: 1px solid var(--border); }
+    .cap-row { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
     .posts-grid { grid-template-columns: 1fr; }
-    .tech-bar { flex-direction: column; align-items: flex-start; }
+    .tech-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .tb-group { flex-direction: column; align-items: flex-start; }
+    .cap-row { grid-template-columns: 1fr; }
   }
 </style>
