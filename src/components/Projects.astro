@@ -4,43 +4,47 @@ import { projects } from '../data/projects';
 
 <section id="projects">
   <div class="container">
-    <div class="fade-up">
-      <p class="section-tag">Projects</p>
+    <div class="reveal">
+      <p class="section-eyebrow">Projects</p>
       <h2 class="section-title">Things I've built</h2>
       <p class="section-lead">Production-focused. Each project was built to solve a real problem, not just to exist on GitHub.</p>
     </div>
 
-    <div class="grid fade-up">
-      {projects.map(p => (
-        <div class:list={['card', { featured: p.featured }]}>
-          <div class="icon">{p.icon}</div>
-          <div class="title">
-            {p.title}
-            {p.badge && <span class="badge">{p.badge}</span>}
-          </div>
-          <p class="desc">{p.description}</p>
+    <div class="grid">
+      {projects.map((p, i) => (
+        <div class:list={['card reveal reveal-scale', { featured: p.featured }]} style={`--i:${i}`} data-tilt>
+          {p.featured && <div class="glow-border"></div>}
+          <div class="card-inner">
+            <div class="top-row">
+              <span class="icon">{p.icon}</span>
+              {p.badge && <span class="badge">{p.badge}</span>}
+            </div>
+            <h3 class="title">{p.title}</h3>
+            <p class="desc">{p.description}</p>
 
-          {p.metrics && (
-            <div class="metrics">
-              {p.metrics.map(m => (
-                <div class="metric">
-                  <span class="metric-val">{m.value}</span>
-                  <span class="metric-label">{m.label}</span>
-                </div>
+            {p.metrics && (
+              <div class="metrics">
+                {p.metrics.map(m => (
+                  <div class="metric">
+                    <span class="metric-val">{m.value}</span>
+                    <span class="metric-label">{m.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div class="tags">
+              {p.tags.map(t => <span class="tag">{t}</span>)}
+            </div>
+
+            <div class="links">
+              {p.links.map(l => (
+                <a href={l.href} target="_blank" rel="noopener" class:list={['link', { primary: l.featured }]}>
+                  {l.label}
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </a>
               ))}
             </div>
-          )}
-
-          <div class="tags">
-            {p.tags.map(t => <span class="tag">{t}</span>)}
-          </div>
-
-          <div class="links">
-            {p.links.map(l => (
-              <a href={l.href} target="_blank" rel="noopener" class:list={['link', { 'link-featured': l.featured }]}>
-                {l.label}
-              </a>
-            ))}
           </div>
         </div>
       ))}
@@ -49,64 +53,120 @@ import { projects } from '../data/projects';
 </section>
 
 <style>
+  section { background: var(--bg2); }
+  section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 50% 60% at 20% 60%, rgba(244,114,182,.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
   .grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 22px; margin-top: 16px;
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
+
   .card {
+    position: relative; border-radius: var(--radius-xl);
+    transform-style: preserve-3d;
+    transition: transform .15s ease, box-shadow .3s;
+    transition-delay: calc(var(--i) * 80ms);
+  }
+  .card:hover { box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+
+  /* Featured glow border */
+  .glow-border {
+    position: absolute; inset: -1px; border-radius: calc(var(--radius-xl) + 1px);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--pink) 50%, var(--accent2) 100%);
+    opacity: .7; z-index: 0;
+    animation: shimmer 3s linear infinite;
+    background-size: 200% auto;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .card-inner {
+    position: relative; z-index: 1;
     background: var(--bg3); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 28px 26px;
+    border-radius: var(--radius-xl); padding: 28px 26px;
     display: flex; flex-direction: column; gap: 14px;
-    transition: border-color .2s, transform .2s, box-shadow .2s;
+    height: 100%; transition: border-color .25s;
   }
-  .card:hover {
-    border-color: var(--accent); transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(99,102,241,.12);
-  }
-  .card.featured {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 1px rgba(99,102,241,.3), 0 4px 24px rgba(99,102,241,.1);
-  }
+  .card.featured .card-inner { border-color: transparent; }
+  .card:not(.featured):hover .card-inner { border-color: var(--border2); }
 
-  .icon { font-size: 28px; }
-  .title { font-size: 15px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .top-row { display: flex; align-items: center; gap: 10px; }
+  .icon { font-size: 30px; }
   .badge {
-    font-size: 10px; font-weight: 700;
-    background: var(--accent); color: #fff;
-    padding: 2px 9px; border-radius: 99px;
-    text-transform: uppercase; letter-spacing: .5px;
+    font-size: 10px; font-weight: 800; letter-spacing: 1px;
+    background: linear-gradient(135deg, var(--accent), var(--pink));
+    color: #fff; padding: 3px 10px; border-radius: 99px;
+    text-transform: uppercase;
   }
-  .desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; flex: 1; }
 
-  .metrics { display: flex; gap: 12px; flex-wrap: wrap; }
+  .title { font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.3; }
+  .desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; flex: 1; }
+
+  .metrics { display: flex; gap: 10px; flex-wrap: wrap; }
   .metric {
+    flex: 1; min-width: 70px;
     background: rgba(99,102,241,.08); border: 1px solid rgba(99,102,241,.18);
-    border-radius: 6px; padding: 6px 12px; text-align: center;
+    border-radius: 10px; padding: 8px 12px; text-align: center;
   }
-  .metric-val { font-size: 15px; font-weight: 700; color: var(--accent2); display: block; }
+  .metric-val {
+    font-size: 16px; font-weight: 800; display: block;
+    background: linear-gradient(135deg, var(--accent3), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
   .metric-label { font-size: 10px; color: var(--text-muted); }
 
-  .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag {
-    font-size: 11px; font-weight: 500; color: var(--text-muted);
+    font-size: 11px; font-weight: 500; color: var(--text-dim);
     background: var(--bg2); border: 1px solid var(--border);
-    padding: 3px 9px; border-radius: 4px;
+    padding: 3px 9px; border-radius: 6px;
+    transition: color .2s, border-color .2s;
   }
+  .card:hover .tag { color: var(--text-muted); border-color: var(--border2); }
 
-  .links { display: flex; gap: 12px; margin-top: auto; }
+  .links { display: flex; gap: 10px; margin-top: auto; }
   .link {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: 12px; font-weight: 600; color: var(--accent2);
-    border: 1px solid var(--border); padding: 7px 14px;
-    border-radius: 6px; transition: border-color .2s, color .2s;
+    font-size: 12px; font-weight: 700;
+    border: 1px solid var(--border2); color: var(--text-muted);
+    padding: 8px 16px; border-radius: 8px;
+    transition: border-color .2s, color .2s, background .2s, transform .2s;
   }
-  .link:hover { border-color: var(--accent2); color: var(--accent3); }
-  .link-featured {
-    background: var(--accent); color: #fff !important; border-color: var(--accent) !important;
+  .link:hover { border-color: var(--accent2); color: var(--accent3); transform: translateY(-1px); }
+  .link.primary {
+    background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+    color: #fff !important; border-color: transparent !important;
+    box-shadow: 0 4px 16px rgba(99,102,241,.35);
   }
-  .link-featured:hover { background: var(--accent2); border-color: var(--accent2) !important; }
+  .link.primary:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(99,102,241,.5); }
 
   @media (max-width: 720px) {
     .grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  // 3D tilt effect on project cards
+  document.querySelectorAll<HTMLElement>('[data-tilt]').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rotX = (y - cy) / cy * -6;
+      const rotY = (x - cx) / cx * 6;
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+</script>
