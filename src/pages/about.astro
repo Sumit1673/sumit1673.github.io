@@ -1,0 +1,238 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { experience } from '../data/experience';
+import { skillGroups } from '../data/skills';
+---
+
+<Layout title="About — Sumit Vaise" page="about">
+<div class="page-sm">
+
+  <!-- ─── Intro ─────────────────────────────────────────────────────── -->
+  <section class="intro rv">
+    <div class="intro-text">
+      <span class="eyebrow">About</span>
+      <h1 class="display">Sumit <span>Vaise</span></h1>
+      <p class="bio">
+        Staff ML Engineer with 9+ years building AI/ML systems end-to-end — from computer vision
+        pipelines at Bosch to production RAG systems at Fidelity. I specialise in the space between
+        a model that works in a notebook and one that reliably works in production.
+      </p>
+      <p class="bio">
+        Currently based in Scarborough, Ontario. Canadian PR. Open to Staff ML / AI Engineer roles
+        across Canada and the US — remote preferred.
+      </p>
+      <div class="intro-actions">
+        <a href="mailto:sumitvaise29@gmail.com" class="btn-primary">Get in touch →</a>
+        <div class="availability">
+          <span class="avail-dot"></span>
+          Open to new opportunities
+        </div>
+      </div>
+    </div>
+    <div class="intro-photo">
+      <div class="photo-wrap">
+        <img src="/photo.jpg" alt="Sumit Vaise" />
+        <div class="photo-fallback">SV</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ─── Experience ────────────────────────────────────────────────── -->
+  <section class="exp-section">
+    <span class="eyebrow rv">Experience</span>
+    <h2 class="heading rv">Where I've worked</h2>
+
+    <div class="timeline">
+      {experience.map((role, i) => (
+        <div class="tl-row rv" data-d={i * 60}>
+          <div class="tl-meta">
+            <span class="tl-date">{role.period}</span>
+          </div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <div>
+                <div class="tl-title">{role.title}</div>
+                <div class="tl-company">{role.company} · {role.location}</div>
+              </div>
+            </div>
+            <ul class="tl-bullets">
+              {role.bullets.map(b => <li set:html={b} />)}
+            </ul>
+            <div class="tl-tags">
+              {role.tags.map(t => <span class="chip">{t}</span>)}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ─── Education ─────────────────────────────────────────────────── -->
+  <section class="edu-section rv">
+    <span class="eyebrow">Education</span>
+    <h2 class="heading">Academic background</h2>
+    <div class="edu-card card">
+      <div class="edu-left">
+        <span class="edu-icon">🎓</span>
+      </div>
+      <div>
+        <div class="edu-degree">Master of Engineering (MEng)</div>
+        <div class="edu-uni">Concordia University · Montreal, QC</div>
+        <div class="edu-period">Jan 2019 – Dec 2020</div>
+        <div class="edu-tags">
+          {['Machine Learning', 'Computer Vision', 'Deep Learning', 'Neural Networks', 'Cloud Computing'].map(t => (
+            <span class="chip">{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ─── Skills ────────────────────────────────────────────────────── -->
+  <section class="skills-section">
+    <span class="eyebrow rv">Skills</span>
+    <h2 class="heading rv">The full toolkit</h2>
+    <div class="skills-grid">
+      {skillGroups.map((g, i) => (
+        <div class="skill-group rv" data-d={i * 50}>
+          <div class="sg-label">
+            {g.label}
+            <span class="sg-count">{g.skills.length}</span>
+          </div>
+          <div class="sg-chips">
+            {g.skills.map(s => <span class="chip">{s}</span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</div>
+</Layout>
+
+<style>
+  /* Intro */
+  .intro {
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 48px; align-items: start; padding-bottom: 16px;
+  }
+  .bio { font-size: 15px; color: var(--text-2); line-height: 1.85; margin-bottom: 16px; }
+  .intro-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
+  .btn-primary {
+    display: inline-flex; align-items: center;
+    background: var(--accent2); color: #fff; font-size: 14px; font-weight: 600;
+    padding: 10px 22px; border-radius: var(--r);
+    transition: background .15s, transform .15s;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); color: #fff; }
+  .availability {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--green);
+  }
+  .avail-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  .photo-wrap {
+    width: 160px; height: 160px; border-radius: 50%;
+    overflow: hidden; position: relative;
+    border: 2px solid var(--border2);
+    background: var(--bg3); flex-shrink: 0;
+  }
+  .photo-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
+  .photo-fallback {
+    position: absolute; inset: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px; font-weight: 900; color: var(--accent2);
+  }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+
+  /* Experience */
+  .exp-section { margin-bottom: 8px; }
+  .timeline { margin-top: 32px; display: flex; flex-direction: column; gap: 0; }
+
+  .tl-row {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: 24px; padding-bottom: 32px; position: relative;
+  }
+  .tl-row::before {
+    content: '';
+    position: absolute; left: 148px; top: 6px; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .tl-row:last-child::before { display: none; }
+
+  .tl-meta { padding-top: 2px; }
+  .tl-date { font-family: var(--mono); font-size: 11px; color: var(--text-3); line-height: 1.5; }
+
+  .tl-content {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--r2); padding: 20px 22px;
+    position: relative; margin-left: 12px;
+    transition: border-color .2s;
+  }
+  .tl-content::before {
+    content: '';
+    position: absolute; left: -6px; top: 12px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent2); border: 2px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--border2);
+  }
+  .tl-row:hover .tl-content { border-color: var(--border2); }
+
+  .tl-header { margin-bottom: 12px; }
+  .tl-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+  .tl-company { font-size: 12px; color: var(--accent3); }
+
+  .tl-bullets { padding-left: 14px; margin-bottom: 12px; }
+  .tl-bullets li { font-size: 13px; color: var(--text-2); margin-bottom: 6px; line-height: 1.65; }
+  .tl-bullets li::marker { color: var(--accent2); }
+  .tl-bullets li :global(strong) { color: var(--text); }
+
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+  /* Education */
+  .edu-section { margin-bottom: 8px; }
+  .edu-card { display: flex; gap: 20px; align-items: flex-start; margin-top: 24px; }
+  .edu-icon { font-size: 28px; }
+  .edu-degree { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .edu-uni { font-size: 13px; color: var(--accent3); margin-bottom: 4px; }
+  .edu-period { font-family: var(--mono); font-size: 11px; color: var(--text-3); margin-bottom: 12px; }
+  .edu-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* Skills */
+  .skills-section { margin-bottom: 8px; }
+  .skills-grid {
+    margin-top: 28px; display: flex; flex-direction: column; gap: 28px;
+  }
+  .skill-group { padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .skill-group:last-child { border-bottom: none; padding-bottom: 0; }
+  .sg-label {
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--text-2);
+    margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .sg-count {
+    font-size: 10px; background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text-3); padding: 1px 7px; border-radius: 99px;
+  }
+  .sg-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  @media (max-width: 640px) {
+    .intro { grid-template-columns: 1fr; }
+    .intro-photo { order: -1; }
+    .tl-row { grid-template-columns: 1fr; gap: 8px; }
+    .tl-row::before { display: none; }
+    .tl-content { margin-left: 0; }
+    .tl-date { display: block; margin-bottom: 4px; }
+  }
+</style>

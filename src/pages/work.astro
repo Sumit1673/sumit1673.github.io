@@ -1,0 +1,208 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { projects } from '../data/projects';
+---
+
+<Layout title="Work — Sumit Vaise" page="work">
+<div class="page">
+
+  <div class="page-header rv">
+    <span class="eyebrow">Work</span>
+    <h1 class="display">Projects</h1>
+    <p class="page-sub">
+      Production-focused ML systems. Built to solve real problems, not to exist on GitHub.
+    </p>
+  </div>
+
+  <div class="projects-grid">
+    {projects.map((p, i) => (
+      <div class:list={['project-card rv', { featured: p.featured }]} data-d={i * 80} data-tilt>
+        <div class="pc-top">
+          <div class="pc-icon-row">
+            <span class="pc-icon">{p.icon}</span>
+            {p.featured && <span class="pc-featured">Featured</span>}
+            {p.badge && !p.featured && <span class="pc-badge">{p.badge}</span>}
+          </div>
+          <h2 class="pc-title">{p.title}</h2>
+          <p class="pc-desc">{p.description}</p>
+        </div>
+
+        {p.metrics && (
+          <div class="pc-metrics">
+            {p.metrics.map(m => (
+              <div class="pc-metric">
+                <span class="pcm-val">{m.value}</span>
+                <span class="pcm-lbl">{m.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div class="pc-tags">
+          {p.tags.map(t => <span class="chip">{t}</span>)}
+        </div>
+
+        <div class="pc-links">
+          {p.links.map(l => (
+            <a href={l.href} target="_blank" rel="noopener" class:list={['pc-link', { primary: l.featured }]}>
+              {l.label} ↗
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Model card note -->
+  <div class="model-card rv">
+    <div class="mc-header">
+      <span class="mc-badge">Model Card</span>
+      <span class="mc-title">Advanced RAG System v2 — Evaluation Summary</span>
+    </div>
+    <div class="mc-grid">
+      <div class="mc-item">
+        <span class="mc-key">Faithfulness</span>
+        <div class="mc-bar-wrap">
+          <div class="mc-bar" style="width:92%"></div>
+        </div>
+        <span class="mc-val">0.92</span>
+      </div>
+      <div class="mc-item">
+        <span class="mc-key">Answer Relevancy</span>
+        <div class="mc-bar-wrap">
+          <div class="mc-bar" style="width:88%"></div>
+        </div>
+        <span class="mc-val">0.88</span>
+      </div>
+      <div class="mc-item">
+        <span class="mc-key">Context Precision</span>
+        <div class="mc-bar-wrap">
+          <div class="mc-bar" style="width:85%"></div>
+        </div>
+        <span class="mc-val">0.85</span>
+      </div>
+      <div class="mc-item">
+        <span class="mc-key">Research Time Saved</span>
+        <div class="mc-bar-wrap">
+          <div class="mc-bar green" style="width:40%"></div>
+        </div>
+        <span class="mc-val">40%</span>
+      </div>
+    </div>
+    <div class="mc-footer">
+      <span class="chip">Evaluated with RAGAS</span>
+      <span class="chip">500+ financial reports</span>
+      <span class="chip">GPT-4o backbone</span>
+    </div>
+  </div>
+
+</div>
+</Layout>
+
+<style>
+  .page-header { margin-bottom: 48px; }
+  .page-sub { font-size: 15px; color: var(--text-2); max-width: 500px; margin-top: 8px; }
+
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 18px; margin-bottom: 48px;
+  }
+
+  .project-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--r3); padding: 28px;
+    display: flex; flex-direction: column; gap: 16px;
+    transition: border-color .2s, transform .15s, box-shadow .2s;
+    transform-style: preserve-3d;
+  }
+  .project-card:hover { border-color: var(--border2); box-shadow: 0 12px 32px rgba(0,0,0,.3); }
+  .project-card.featured { border-color: rgba(99,102,241,.4); }
+
+  .pc-icon-row { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .pc-icon { font-size: 28px; }
+  .pc-featured {
+    font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; background: rgba(99,102,241,.12);
+    color: var(--accent3); border: 1px solid rgba(99,102,241,.3); padding: 2px 9px; border-radius: 4px;
+  }
+  .pc-badge {
+    font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; background: rgba(74,222,128,.08);
+    color: var(--green); border: 1px solid rgba(74,222,128,.2); padding: 2px 9px; border-radius: 4px;
+  }
+
+  .pc-title { font-size: 17px; font-weight: 700; letter-spacing: -.4px; margin-bottom: 4px; }
+  .pc-desc { font-size: 13px; color: var(--text-2); line-height: 1.75; flex: 1; }
+
+  .pc-metrics { display: flex; gap: 10px; flex-wrap: wrap; }
+  .pc-metric {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: var(--r); padding: 8px 14px; min-width: 80px;
+  }
+  .pcm-val { display: block; font-family: var(--mono); font-size: 17px; font-weight: 700; color: var(--green); }
+  .pcm-lbl { font-size: 10px; color: var(--text-3); }
+
+  .pc-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .pc-links { display: flex; gap: 8px; }
+  .pc-link {
+    font-size: 12px; font-weight: 600; color: var(--text-2);
+    border: 1px solid var(--border); padding: 7px 14px; border-radius: var(--r);
+    transition: border-color .15s, color .15s;
+  }
+  .pc-link:hover { border-color: var(--accent); color: var(--accent3); }
+  .pc-link.primary {
+    background: var(--accent2); color: #fff !important; border-color: var(--accent2) !important;
+  }
+  .pc-link.primary:hover { background: var(--accent); border-color: var(--accent) !important; }
+
+  /* Model card */
+  .model-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--r3); overflow: hidden;
+  }
+  .mc-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 20px; background: var(--bg3); border-bottom: 1px solid var(--border);
+  }
+  .mc-badge {
+    font-family: var(--mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    background: rgba(99,102,241,.12); color: var(--accent3);
+    border: 1px solid rgba(99,102,241,.25); padding: 2px 8px; border-radius: 4px;
+  }
+  .mc-title { font-size: 13px; font-weight: 600; color: var(--text-2); }
+  .mc-grid { display: flex; flex-direction: column; gap: 0; padding: 20px; }
+  .mc-item {
+    display: grid; grid-template-columns: 160px 1fr 48px;
+    align-items: center; gap: 12px; padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mc-item:last-child { border-bottom: none; }
+  .mc-key { font-size: 12px; color: var(--text-2); }
+  .mc-bar-wrap { background: var(--bg3); border-radius: 99px; height: 6px; }
+  .mc-bar { height: 100%; border-radius: 99px; background: var(--accent2); transition: width 1s ease; }
+  .mc-bar.green { background: var(--green); }
+  .mc-val { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--accent3); text-align: right; }
+  .mc-footer {
+    display: flex; gap: 8px; padding: 14px 20px;
+    background: var(--bg3); border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 720px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .mc-item { grid-template-columns: 1fr; gap: 4px; }
+    .mc-bar-wrap { max-width: 200px; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-tilt]').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = `perspective(600px) rotateY(${x*6}deg) rotateX(${-y*6}deg) scale(1.01)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+</script>

@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { posts } from '../data/blog';
+---
+
+<Layout title="Blog — Sumit Vaise" page="blog">
+<div class="page-sm">
+
+  <div class="rv">
+    <span class="eyebrow">Blog</span>
+    <h1 class="display">Writing</h1>
+    <p class="page-sub">
+      Thoughts on RAG systems, production ML, and the messy reality of getting models to actually work.
+      Published on <a href="https://medium.com/@sumitvaish" target="_blank" rel="noopener" class="link">Medium ↗</a>
+    </p>
+  </div>
+
+  <div class="posts-list">
+    {posts.map((p, i) => (
+      <a href={p.href} target="_blank" rel="noopener" class="post rv" data-d={i * 80}>
+        <div class="post-thumb">{p.icon}</div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span class="post-date">{p.date}</span>
+            <span class="post-tag">{p.tag}</span>
+          </div>
+          <h2 class="post-title">{p.title}</h2>
+          <p class="post-exc">{p.excerpt}</p>
+        </div>
+        <span class="post-arrow">→</span>
+      </a>
+    ))}
+  </div>
+
+  <!-- Subscribe -->
+  <div class="subscribe rv">
+    <div class="sub-left">
+      <h3>Get notified when I publish</h3>
+      <p>ML engineering deep-dives — RAG, LLMs, MLOps, production lessons. No spam.</p>
+    </div>
+    <form class="sub-form" id="subForm">
+      <input id="subEmail" type="email" placeholder="your@email.com" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
+</div>
+</Layout>
+
+<style>
+  .page-sub { font-size: 15px; color: var(--text-2); max-width: 480px; margin-top: 8px; margin-bottom: 48px; }
+  .link { color: var(--accent3); border-bottom: 1px solid rgba(165,180,252,.3); transition: border-color .15s; }
+  .link:hover { border-color: var(--accent3); }
+
+  .posts-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 48px; }
+
+  .post {
+    display: grid; grid-template-columns: 64px 1fr 32px;
+    align-items: center; gap: 20px;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--r2); padding: 20px;
+    color: var(--text); text-decoration: none;
+    transition: border-color .2s, background .2s;
+  }
+  .post:hover { border-color: var(--border2); background: var(--bg3); color: var(--text); }
+
+  .post-thumb {
+    width: 56px; height: 56px; border-radius: var(--r);
+    background: var(--bg3); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; flex-shrink: 0;
+  }
+  .post-body { display: flex; flex-direction: column; gap: 5px; }
+  .post-meta { display: flex; align-items: center; gap: 8px; }
+  .post-date { font-family: var(--mono); font-size: 10px; color: var(--text-3); }
+  .post-tag {
+    font-family: var(--mono); font-size: 10px; font-weight: 600;
+    background: rgba(99,102,241,.1); color: var(--accent3);
+    border: 1px solid rgba(99,102,241,.2); padding: 1px 7px; border-radius: 3px;
+    text-transform: uppercase;
+  }
+  .post-title { font-size: 14px; font-weight: 700; line-height: 1.4; }
+  .post-exc { font-size: 12.5px; color: var(--text-2); line-height: 1.6; }
+  .post-arrow { font-size: 16px; color: var(--text-3); transition: color .2s, transform .2s; justify-self: end; }
+  .post:hover .post-arrow { color: var(--accent3); transform: translateX(2px); }
+
+  /* Subscribe */
+  .subscribe {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--r3); padding: 32px;
+    display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+  }
+  .sub-left { flex: 1; }
+  .sub-left h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .sub-left p { font-size: 13px; color: var(--text-2); }
+  .sub-form { display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap; }
+  .sub-form input {
+    background: var(--bg3); border: 1px solid var(--border2);
+    color: var(--text); font-size: 13px; font-family: 'Inter', sans-serif;
+    padding: 10px 16px; border-radius: var(--r); outline: none; min-width: 200px;
+    transition: border-color .15s;
+  }
+  .sub-form input::placeholder { color: var(--text-3); }
+  .sub-form input:focus { border-color: var(--accent); }
+  .sub-form button {
+    background: var(--accent2); color: #fff; font-size: 13px; font-weight: 600;
+    font-family: 'Inter', sans-serif; padding: 10px 20px; border-radius: var(--r);
+    border: none; cursor: pointer; transition: background .15s;
+    white-space: nowrap;
+  }
+  .sub-form button:hover { background: var(--accent); }
+
+  @media (max-width: 640px) {
+    .post { grid-template-columns: 48px 1fr; }
+    .post-arrow { display: none; }
+    .subscribe { flex-direction: column; gap: 20px; }
+    .sub-form { width: 100%; }
+    .sub-form input { min-width: 0; flex: 1; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('subForm') as HTMLFormElement;
+  form?.addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = form.querySelector('button')!;
+    btn.textContent = '✓ Subscribed!';
+    btn.style.background = 'var(--green)';
+    btn.style.color = 'var(--bg)';
+    setTimeout(() => {
+      btn.textContent = 'Subscribe';
+      btn.style.background = '';
+      btn.style.color = '';
+      (document.getElementById('subEmail') as HTMLInputElement).value = '';
+    }, 3000);
+  });
+</script>
