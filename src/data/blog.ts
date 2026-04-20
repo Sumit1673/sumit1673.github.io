@@ -12,9 +12,9 @@ export const posts: BlogPost[] = [
     icon: '🔍',
     date: 'Apr 2026',
     tag: 'RAG',
-    title: 'From Basic to Production-Grade RAG: Hybrid Search, Reranking & Streaming in Python',
-    excerpt: 'How I upgraded a simple vector-search chatbot using hybrid BM25 + dense retrieval, cross-encoder reranking, LLM query rewriting, and streaming SSE — the same patterns used by Netflix and Amazon.',
-    href: 'https://medium.com/@sumitvaish',
+    title: 'Why I stopped using Vector Search alone?',
+    excerpt: 'How I improved RAG context precision from 68% to 85% by going beyond vector search — combining semantic and keyword retrieval to handle queries that embeddings alone get wrong.',
+    href: 'https://medium.com/@sumitvaish/why-i-stopped-using-vector-search-alone-6deb76d316b6',
   },
   {
     icon: '🐍',
