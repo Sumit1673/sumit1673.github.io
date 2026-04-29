@@ -27,6 +27,8 @@ import { skillGroups } from '../data/skills';
       </p>
       <div class="intro-actions">
         <a href="mailto:sumitvaise29@gmail.com" class="btn-primary">Get in touch →</a>
+        <a href="https://cal.com/sumit-vaise" target="_blank" rel="noopener" class="btn-ghost">📅 Book a meeting</a>
+        <a href="/Resume_SumitVaise_SrML_main.pdf" download class="btn-ghost">⬇ Download CV</a>
         <div class="availability">
           <span class="avail-dot"></span>
           Open to new opportunities
@@ -135,6 +137,14 @@ import { skillGroups } from '../data/skills';
     transition: background .15s, transform .15s;
   }
   .btn-primary:hover { background: var(--accent); transform: translateY(-1px); color: #fff; }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid var(--border2); color: var(--text-2);
+    font-size: 14px; font-weight: 500;
+    padding: 10px 22px; border-radius: var(--r);
+    transition: border-color .15s, color .15s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--text); }
   .availability {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: 13px; color: var(--green);
