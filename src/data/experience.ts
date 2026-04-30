@@ -9,7 +9,7 @@ export interface Role {
 
 export const experience: Role[] = [
   {
-    title: 'Staff ML Engineer',
+    title: 'Sr ML Engineer',
     company: 'Fidelity Investments',
     location: 'Boston, MA, USA',
     period: 'Nov 2024 – Dec 2025',

@@ -48,6 +48,9 @@ import { projects } from '../data/projects';
               {l.label} ↗
             </a>
           ))}
+          {p.corporate && (
+            <span class="pc-corp">corporate project — code not public</span>
+          )}
         </div>
       </div>
     ))}
@@ -143,7 +146,12 @@ import { projects } from '../data/projects';
   .pcm-lbl { font-size: 10px; color: var(--text-3); }
 
   .pc-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .pc-links { display: flex; gap: 8px; }
+  .pc-links { display: flex; gap: 8px; align-items: center; }
+  .pc-corp {
+    font-family: var(--mono); font-size: 11px; color: var(--amber);
+    background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.2);
+    padding: 4px 10px; border-radius: var(--r);
+  }
   .pc-link {
     font-size: 12px; font-weight: 600; color: var(--text-2);
     border: 1px solid var(--border); padding: 7px 14px; border-radius: var(--r);

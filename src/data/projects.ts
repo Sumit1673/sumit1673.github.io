@@ -7,6 +7,7 @@ export interface Project {
   tags: string[];
   links: { label: string; href: string; featured?: boolean }[];
   featured?: boolean;
+  corporate?: boolean;
 }
 
 export const projects: Project[] = [
@@ -54,8 +55,7 @@ export const projects: Project[] = [
     description:
       'End-to-end ML pipeline for automated insurance claims classification and routing on Google Cloud Platform. Combines Document AI for structured extraction, BERT-based NLP for intent classification, and BigQuery ML for risk scoring. Deployed on GKE with KubeFlow orchestration and real-time monitoring.',
     tags: ['GCP', 'Document AI', 'Vertex AI', 'BigQuery ML', 'KubeFlow', 'GKE'],
-    links: [
-      { label: 'View Code', href: 'https://github.com/Sumit1673', featured: true },
-    ],
+    links: [],
+    corporate: true,
   },
 ];
