@@ -14,7 +14,7 @@ export const experience: Role[] = [
     location: 'Boston, MA, USA',
     period: 'Nov 2024 – Dec 2025',
     bullets: [
-      'Built a <strong>Multi-Document RAG Pipeline</strong> using LangChain, Sentence Transformers, and ChromaDB — cut analyst research time by <strong>40%</strong> across 500+ financial reports.',
+      'Built a <strong>Multi-Document RAG Pipeline</strong> using LangChain, Sentence Transformers, and ChromaDB, cutting analyst research time by <strong>40%</strong> across 500+ financial reports.',
       'Deployed a <strong>Vector ETL pipeline</strong> for multi-source document ingestion, implementing recursive text chunking and automated embedding generation.',
       'Developed end-to-end ETL and ML pipelines for real-time communication error detection using AWS, Airflow, Snowflake, Flask, and AWS EKS.',
       'Established MLOps best practices: MLflow experiment tracking, GitHub Actions CI/CD, automated retraining triggers, Grafana monitoring dashboards.',
@@ -41,7 +41,7 @@ export const experience: Role[] = [
     period: 'Jul 2021 – Mar 2024',
     bullets: [
       '<strong>Inventory Allocation Prediction</strong> (Team Lead, Team of 4): Architected and led end-to-end ML solution for US shipment optimisation, translating business requirements into production systems.',
-      '<strong>Insurance Claims Processing</strong> (Team of 12): Implemented a scalable Deep Learning classification system on GCP — TensorFlow, OCR, PyTorch — achieving a <strong>70% speed-up</strong> in claims processing.',
+      '<strong>Insurance Claims Processing</strong> (Team of 12): Implemented a scalable Deep Learning classification system on GCP using TensorFlow, OCR, and PyTorch, achieving a <strong>70% speed-up</strong> in claims processing.',
       'Mentored 3 junior engineers; led bi-weekly ML guild sessions on LLM fine-tuning and retrieval-augmented generation.',
       'Delivered 6 production ML systems across healthcare, fintech, and media verticals on GCP and AWS.',
     ],

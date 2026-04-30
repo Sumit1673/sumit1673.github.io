@@ -23,11 +23,11 @@ export const skillGroups: SkillGroup[] = [
     skills: ['ChromaDB', 'FAISS', 'OpenSearch', 'Pinecone', 'BM25 (Sparse Retrieval)', 'Reciprocal Rank Fusion', 'Semantic Search', 'Hybrid Retrieval'],
   },
   {
-    label: 'Cloud — GCP',
+    label: 'Cloud: GCP',
     skills: ['Vertex AI', 'BigQuery ML', 'GKE', 'KubeFlow', 'Cloud Run', 'Pub/Sub', 'Document AI', 'Cloud Storage'],
   },
   {
-    label: 'Cloud — AWS',
+    label: 'Cloud: AWS',
     skills: ['SageMaker', 'EKS', 'EC2', 'S3', 'Lambda', 'Airflow (MWAA)', 'Snowflake', 'Kafka'],
   },
   {

@@ -17,7 +17,7 @@ export const projects: Project[] = [
     badge: 'New',
     featured: true,
     description:
-      'Upgraded a basic RAG pipeline into a production-grade system using patterns from Netflix and Amazon — hybrid BM25 + dense retrieval with Reciprocal Rank Fusion, LLM query rewriting (+15–25% recall), cross-encoder reranking, and token-by-token streaming. Evaluated with RAGAS across faithfulness, relevancy, and context precision.',
+      'Upgraded a basic RAG pipeline into a production-grade system using patterns from Netflix and Amazon: hybrid BM25 + dense retrieval with Reciprocal Rank Fusion, LLM query rewriting (+15-25% recall), cross-encoder reranking, and token-by-token streaming. Evaluated with RAGAS across faithfulness, relevancy, and context precision.',
     metrics: [
       { value: '0.92', label: 'Faithfulness' },
       { value: '0.88', label: 'Answer Relevancy' },
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     icon: '🔍',
     title: 'RAG Knowledge Assistant',
     description:
-      'A production-grade Retrieval-Augmented Generation system built with LangChain, FAISS, and HuggingFace Sentence Transformers. Ingests multi-format documents (PDF, DOCX, web), chunks intelligently, embeds to a local vector store, and answers questions with source citations. Architected for extensibility — swappable LLM backends (Ollama, OpenAI, Groq).',
+      'A production-grade Retrieval-Augmented Generation system built with LangChain, FAISS, and HuggingFace Sentence Transformers. Ingests multi-format documents (PDF, DOCX, web), chunks intelligently, embeds to a local vector store, and answers questions with source citations. Supports swappable LLM backends (Ollama, OpenAI, Groq).',
     tags: ['LangChain', 'FAISS', 'HuggingFace', 'Ollama', 'FastAPI', 'Python'],
     links: [
       { label: 'View Code', href: 'https://github.com/Sumit1673/knowledge-assistant', featured: true },
