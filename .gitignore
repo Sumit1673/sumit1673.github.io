@@ -1,7 +1,9 @@
 # Build output
 dist/
 .vercel/
-
+.claude/*
+.continue/*
+.agents/*
 # Dependencies
 node_modules/
 
